@@ -6,9 +6,22 @@ import { motion } from 'framer-motion-3d';
 import { GroupProps } from '@react-three/fiber';
 import * as THREE from 'three';
 
+// Définir l'interface pour vos nodes
+interface RoomGLTF extends THREE.Object3D {
+  nodes: {
+    [key: string]: THREE.Mesh & {
+      geometry: THREE.BufferGeometry;
+      material: THREE.Material;
+    };
+  };
+  materials: {
+    [key: string]: THREE.Material;
+  };
+}
+
 export const Room: React.FC<GroupProps> = (props) => {
   const group = useRef<THREE.Group>(null);
-    const { nodes, materials, animations } = useGLTF('3D/models/room.glb')
+    const { nodes, materials, animations } = useGLTF('3D/models/room.glb') as unknown as RoomGLTF;
     const { actions } = useAnimations(animations, group)
     return (
       <group ref={group} {...props} dispose={null}>

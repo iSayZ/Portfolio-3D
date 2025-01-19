@@ -9,24 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^9.92.7",
-    "@react-three/fiber": "^8.15.12",
+    "@react-three/drei": "^9.121.2",
+    "@react-three/fiber": "^8.15.11",
+    "critters": "^0.0.23",
     "framer-motion": "^10.18.0",
     "framer-motion-3d": "^10.18.0",
     "lucide-react": "^0.263.1",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "three": "^0.172.0"
+    "three": "^0.160.0",
+    "three-stdlib": "^2.35.8"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.172.0",
+    "@types/three": "^0.160.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "next-transpile-modules": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

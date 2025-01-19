@@ -11,6 +11,29 @@ interface AvatarProps extends GroupProps {
   animation: string;
 }
 
+interface GLTFResult extends THREE.Object3D {
+  nodes: {
+    [key: string]: THREE.SkinnedMesh & {
+      geometry: THREE.BufferGeometry;
+      material: THREE.Material;
+      skeleton: THREE.Skeleton;
+      morphTargetDictionary?: { [key: string]: number };
+      morphTargetInfluences?: number[];
+    };
+  };
+  materials: {
+    [key: string]: THREE.Material;
+  };
+}
+
+interface GLTF {
+  nodes: GLTFResult['nodes'];
+  materials: GLTFResult['materials'];
+  animations: THREE.AnimationClip[];
+  scene: THREE.Group;
+}
+
+
 export function Avatar({ animation, ...props }: AvatarProps) {
   const group = useRef<THREE.Group>(null);
   const previousAnimation = useRef(animation);
@@ -23,7 +46,7 @@ export function Avatar({ animation, ...props }: AvatarProps) {
 //     wireframe: false
 //   });
 
-  const { nodes, materials } = useGLTF('3D/models/avatar.glb');
+  const { nodes, materials } = useGLTF('3D/models/avatar.glb') as unknown as GLTF;;
   
   // Utiliser useMemo pour mémoriser les animations
   const animations = useMemo(() => {
