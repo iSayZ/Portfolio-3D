@@ -5,10 +5,14 @@ import React, { useEffect, useRef, useMemo } from 'react'
 import { useAnimations, useFBX, useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { GroupProps } from '@react-three/fiber';
 
-export function Avatar(props) {
-  const { animation } = props;
-  const group = useRef();
+interface AvatarProps extends GroupProps {
+  animation: string;
+}
+
+export function Avatar({ animation, ...props }: AvatarProps) {
+  const group = useRef<THREE.Group>(null);
   const previousAnimation = useRef(animation);
 
   const following = animation === "Standing" ? true : false;
@@ -51,7 +55,7 @@ export function Avatar(props) {
     if (!actions || !actions[animation]) return;
 
     // Fonctions pour gérer les transitions
-    const fadeToAction = (actionName, duration) => {
+    const fadeToAction = (actionName: string, duration: number) => {
       const currentAction = actions[previousAnimation.current];
       const newAction = actions[actionName];
 

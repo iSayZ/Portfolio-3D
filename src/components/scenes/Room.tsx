@@ -3,9 +3,11 @@
 import React, { useRef } from 'react';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
+import { GroupProps } from '@react-three/fiber';
+import * as THREE from 'three';
 
-export function Room(props) {
-    const group = useRef()
+export const Room: React.FC<GroupProps> = (props) => {
+  const group = useRef<THREE.Group>(null);
     const { nodes, materials, animations } = useGLTF('3D/models/room.glb')
     const { actions } = useAnimations(animations, group)
     return (
