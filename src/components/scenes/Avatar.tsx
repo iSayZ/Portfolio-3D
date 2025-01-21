@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useMemo } from 'react'
-import { useAnimations, useFBX, useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
-import { GroupProps } from '@react-three/fiber';
+import React, { useEffect, useRef, useMemo } from "react";
+import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
+import { GroupProps } from "@react-three/fiber";
 
 interface AvatarProps extends GroupProps {
   animation: string;
@@ -27,12 +27,11 @@ interface GLTFResult extends THREE.Object3D {
 }
 
 interface GLTF {
-  nodes: GLTFResult['nodes'];
-  materials: GLTFResult['materials'];
+  nodes: GLTFResult["nodes"];
+  materials: GLTFResult["materials"];
   animations: THREE.AnimationClip[];
   scene: THREE.Group;
 }
-
 
 export function Avatar({ animation, ...props }: AvatarProps) {
   const group = useRef<THREE.Group>(null);
@@ -41,14 +40,15 @@ export function Avatar({ animation, ...props }: AvatarProps) {
   const following = animation === "Standing" ? true : false;
 
   //   const { headFollow, cursorFollow, wireframe } = useControls({
-//     headFollow: false,
-//     cursorFollow: false,
-//     wireframe: false
-//   });
+  //     headFollow: false,
+  //     cursorFollow: false,
+  //     wireframe: false
+  //   });
 
-  const { nodes, materials } = useGLTF('3D/models/avatar.glb') as unknown as GLTF;;
-  
-  // Utiliser useMemo pour mémoriser les animations
+  const { nodes, materials } = useGLTF(
+    "3D/models/avatar.glb",
+  ) as unknown as GLTF;
+
   const animations = useMemo(() => {
     const falling = useFBX("3D/animations/falling.fbx").animations[0];
     const salute = useFBX("3D/animations/salute.fbx").animations[0];
@@ -57,8 +57,7 @@ export function Avatar({ animation, ...props }: AvatarProps) {
     const fight = useFBX("3D/animations/fight.fbx").animations[0];
     const jump = useFBX("3D/animations/jump.fbx").animations[0];
     const breakdance = useFBX("3D/animations/breakdance.fbx").animations[0];
-    
-    // Configurer les noms une seule fois
+
     if (falling) falling.name = "Falling";
     if (salute) salute.name = "Salute";
     if (standing) standing.name = "Standing";
@@ -66,18 +65,15 @@ export function Avatar({ animation, ...props }: AvatarProps) {
     if (fight) fight.name = "Fight";
     if (jump) jump.name = "Jump";
     if (breakdance) breakdance.name = "BreakDance";
-    
+
     return [falling, salute, standing, typing, fight, jump, breakdance];
-  }, []); // Dépendances vides = exécuté une seule fois
-  
-  // Gérer les animations avec useAnimations
+  }, []);
+
   const { actions } = useAnimations(animations, group);
 
-  // Gérer la transition entre les animations
   useEffect(() => {
     if (!actions || !actions[animation]) return;
 
-    // Fonctions pour gérer les transitions
     const fadeToAction = (actionName: string, duration: number) => {
       const currentAction = actions[previousAnimation.current];
       const newAction = actions[actionName];
@@ -110,18 +106,22 @@ export function Avatar({ animation, ...props }: AvatarProps) {
     if (following && group.current) {
       const neck = group.current.getObjectByName("Neck");
       if (neck) {
-        const target = new THREE.Vector3(state.mouse.x * 5, state.mouse.y * 5, -1);
+        const target = new THREE.Vector3(
+          state.mouse.x * 5,
+          state.mouse.y * 5,
+          -1,
+        );
         neck.lookAt(target);
       }
     }
   });
 
-//   // Gérer le wireframe
-//   useEffect(() => {
-//     Object.values(materials).forEach((material) => {
-//       material.wireframe = wireframe;
-//     });
-//   }, [wireframe, materials]);
+  //   // Gérer le wireframe
+  //   useEffect(() => {
+  //     Object.values(materials).forEach((material) => {
+  //       material.wireframe = wireframe;
+  //     });
+  //   }, [wireframe, materials]);
 
   return (
     <group {...props} ref={group} dispose={null}>
@@ -189,4 +189,4 @@ export function Avatar({ animation, ...props }: AvatarProps) {
   );
 }
 
-useGLTF.preload('3D/models/avatar.glb');
+useGLTF.preload("3D/models/avatar.glb");
