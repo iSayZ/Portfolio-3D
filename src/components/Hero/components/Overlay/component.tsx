@@ -1,5 +1,6 @@
 import { ChevronDown, Github, Linkedin, Mail, Redo2 } from "lucide-react";
 import { OverlayProps } from "./types";
+import { Button } from "@/components/ui/button";
 
 const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle }) => {
     return (
@@ -23,12 +24,12 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle }) => {
             <p className="text-xl text-white/80 mb-8">
                 Développeur Full Stack · Créateur d'expériences web
             </p>
-            <button 
+            <Button 
                 onClick={() => onToggle(false)}
-                className="px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-opacity-90 transition-all hover:scale-105"
+                variant="secondary"
             >
                 Explorer mon univers
-            </button>
+            </Button>
             </div>
 
             {/* Scroll indicator */}

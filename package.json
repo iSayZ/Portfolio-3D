@@ -10,8 +10,11 @@
     "format": "npx prettier --write ."
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
     "@react-three/drei": "^9.121.2",
     "@react-three/fiber": "^8.15.11",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "critters": "^0.0.23",
     "framer-motion": "^10.18.0",
     "framer-motion-3d": "^10.18.0",
@@ -19,6 +22,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.160.0"
   },
   "devDependencies": {
