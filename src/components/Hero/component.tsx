@@ -11,10 +11,10 @@ const Hero = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   return (
-    <div className="relative w-full h-screen bg-slate-50">
+    <div className="relative w-full h-screen">
       {/* Container of the 3D Scene */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900">
+        <div className="w-full h-full">
           <Suspense fallback={<LoadingScreen />}>
             <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>

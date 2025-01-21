@@ -27,7 +27,7 @@ const Scene3D: React.FC<Scene3DProps> = ({ onLoaded }) => {
   }, [loaded, progress, onLoaded]);
 
   return (
-    <div className="w-full h-screen bg-slate-50">
+    <div className="w-full h-screen bg-background">
       <Canvas shadows dpr={[1, 2]} performance={{ min: 0.5 }}>
         <PerspectiveCamera makeDefault position={[4, 1, 5]} fov={42} />
 
