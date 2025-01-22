@@ -1,19 +1,18 @@
-import React, { Suspense, useEffect, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
 import {
-  PerspectiveCamera,
-  OrbitControls,
   Environment,
-  useProgress,
+  OrbitControls,
+  PerspectiveCamera,
   useGLTF,
-  Stars,
+  useProgress
 } from "@react-three/drei";
-import { Room } from "./Room";
+import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useEffect } from "react";
 import { Avatar } from "./Avatar";
 import { GalaxyBackground } from "./Background3D/GalaxyBackground";
+import { Room } from "./Room";
 
-useGLTF.preload("/3D/models/room.glb");
-useGLTF.preload("/3D/models/avatar.glb");
+useGLTF.preload("/assets/3D/models/room.glb");
+useGLTF.preload("/assets/3D/models/avatar.glb");
 
 interface Scene3DProps {
   onLoaded?: () => void;

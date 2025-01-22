@@ -29,8 +29,8 @@ const Hero = () => {
           </Suspense>
         </div>
       </div>
-
-      {isLoading && <LoadingScreen />}
+      {/* Disabled for development */}
+      {/* {isLoading && <LoadingScreen />} */}
 
       <Overlay 
         isOpen={showOverlay} 

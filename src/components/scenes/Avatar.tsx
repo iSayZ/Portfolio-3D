@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import React, { useEffect, useRef, useMemo } from "react";
 import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { GroupProps, useFrame } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { GroupProps } from "@react-three/fiber";
 
 interface AvatarProps extends GroupProps {
   animation: string;
@@ -46,17 +45,17 @@ export function Avatar({ animation, ...props }: AvatarProps) {
   //   });
 
   const { nodes, materials } = useGLTF(
-    "3D/models/avatar.glb",
+    "/assets/3D/models/avatar.glb",
   ) as unknown as GLTF;
 
   const animations = useMemo(() => {
-    const falling = useFBX("3D/animations/falling.fbx").animations[0];
-    const salute = useFBX("3D/animations/salute.fbx").animations[0];
-    const standing = useFBX("3D/animations/standing.fbx").animations[0];
-    const typing = useFBX("3D/animations/typing.fbx").animations[0];
-    const fight = useFBX("3D/animations/fight.fbx").animations[0];
-    const jump = useFBX("3D/animations/jump.fbx").animations[0];
-    const breakdance = useFBX("3D/animations/breakdance.fbx").animations[0];
+    const falling = useFBX("/assets/3D/animations/falling.fbx").animations[0];
+    const salute = useFBX("/assets/3D/animations/salute.fbx").animations[0];
+    const standing = useFBX("/assets/3D/animations/standing.fbx").animations[0];
+    const typing = useFBX("/assets/3D/animations/typing.fbx").animations[0];
+    const fight = useFBX("/assets/3D/animations/fight.fbx").animations[0];
+    const jump = useFBX("/assets/3D/animations/jump.fbx").animations[0];
+    const breakdance = useFBX("/assets/3D/animations/breakdance.fbx").animations[0];
 
     if (falling) falling.name = "Falling";
     if (salute) salute.name = "Salute";
@@ -189,4 +188,4 @@ export function Avatar({ animation, ...props }: AvatarProps) {
   );
 }
 
-useGLTF.preload("3D/models/avatar.glb");
+useGLTF.preload("/assets/3D/models/avatar.glb");

@@ -1,9 +1,9 @@
-import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
-import { HelpFor3DInteractionProps } from "./types";
-import { useState, useEffect } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"; // Import shadcn alert
 import { Button } from "@/components/ui/button"; // Bouton shadcn
+import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { HelpFor3DInteractionProps } from "./types";
 
 const HelpFor3DInteraction: React.FC<HelpFor3DInteractionProps> = ({
   isOpen,
