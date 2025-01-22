@@ -9,24 +9,35 @@ import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
 const Hero = () => {
   const [showOverlay, setShowOverlay] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasExplored, setHasExplored] = useState<boolean>(false);
+
+  const handleExplore = (value: boolean) => {
+    setShowOverlay(value);
+    if (!value) {
+      setHasExplored(true);
+    }
+  };
 
   return (
     <div className="relative w-full h-screen">
-      {/* Container of the 3D Scene */}
       <div className="absolute inset-0">
         <div className="w-full h-full">
           <Suspense fallback={<LoadingScreen />}>
-            <Scene3D onLoaded={() => setIsLoading(false)} />
+          <Scene3D 
+  onLoaded={() => setIsLoading(false)} 
+/>
           </Suspense>
         </div>
       </div>
 
       {isLoading && <LoadingScreen />}
 
-      {/* Overlay with information - displayed on top of the 3D scene */}
-      <Overlay isOpen={showOverlay} onToggle={setShowOverlay} />
+      <Overlay 
+        isOpen={showOverlay} 
+        onToggle={handleExplore} 
+        hasExplored={hasExplored}
+      />
 
-      {/* Discrete instructions for 3D interaction */}
       <HelpFor3DInteraction isOpen={showOverlay} />
     </div>
   );

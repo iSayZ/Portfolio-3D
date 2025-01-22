@@ -1,13 +1,31 @@
-import { ChevronDown, Github, Linkedin, Mail, Redo2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Github, Linkedin, Mail, Redo, Redo2, Undo2 } from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
 import { ThemeToggleButton } from "@/components/Theming/ThemeToggleButton";
+import { useEffect } from "react";
 
-const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle }) => {
+const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
+
+  // Scroll controls
+  useEffect(() => {
+    // Stop scrolling if hasExplored is false
+    if (!hasExplored) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cleanup on component destruction
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [hasExplored]);
+  
   return (
     <>
       <div
-        className={`absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-500 
+          ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
@@ -28,23 +46,42 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle }) => {
           <p className="text-xl text-slate-50 mb-8">
             Développeur Full Stack JS · Créateur d'expériences web
           </p>
-          <Button onClick={() => onToggle(false)} variant="secondary" className="py-5 bg-slate-50 text-black hover:text-slate-50">
-            Explorer mon univers
-          </Button>
+          <div className="relative group">
+            <Button 
+              onClick={() => onToggle(false)} 
+              variant="secondary" 
+              className="py-5 bg-slate-50 text-black hover:text-slate-50 animate-pulse"
+            >
+              Explorer mon univers
+            </Button>
+            {!hasExplored && (
+              <div className="flex flex-col items-center gap-2 mt-4 animate-bounce text-slate-50/80">
+                <ChevronUp className="w-8 h-8" />
+                <p className="text-sm">
+                  Commence par explorer mon univers 3D
+                </p>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute w-full bottom-8 flex justify-center text-slate-50 animate-bounce">
-          <ChevronDown className="w-8 h-8" />
-        </div>
+        {hasExplored && (
+          <div className="absolute w-full bottom-8 flex flex-col items-center text-slate-50 animate-bounce">
+            <p className="text-sm mb-2">Maintenant, découvre mon travail</p>
+            <ChevronDown className="w-8 h-8" />
+          </div>
+        )}
       </div>
 
       {/* Button to redisplay overlay - visible only when overlay is hidden */}
       <Button
         onClick={() => onToggle(true)}
-        className={`absolute top-6 right-6 p-3 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`absolute top-6 right-6 p-3 max-sm:right-auto max-sm:left-1/2 max-sm:-translate-x-1/2 ${
+          isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
       >
-        <Redo2 className="w-6 h-6" />
+        <Undo2 className="w-6 h-6" />
+        Retour au portfolio
       </Button>
     </>
   );

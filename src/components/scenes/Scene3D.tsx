@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -6,9 +6,11 @@ import {
   Environment,
   useProgress,
   useGLTF,
+  Stars,
 } from "@react-three/drei";
 import { Room } from "./Room";
 import { Avatar } from "./Avatar";
+import { GalaxyBackground } from "./Background3D/GalaxyBackground";
 
 useGLTF.preload("/3D/models/room.glb");
 useGLTF.preload("/3D/models/avatar.glb");
@@ -27,7 +29,7 @@ const Scene3D: React.FC<Scene3DProps> = ({ onLoaded }) => {
   }, [loaded, progress, onLoaded]);
 
   return (
-    <div className="w-full h-screen bg-background">
+    <div className="w-full h-screen">
       <Canvas shadows dpr={[1, 2]} performance={{ min: 0.5 }}>
         <PerspectiveCamera makeDefault position={[4, 1, 5]} fov={42} />
 
@@ -50,6 +52,7 @@ const Scene3D: React.FC<Scene3DProps> = ({ onLoaded }) => {
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
+        <GalaxyBackground />
 
         <group position={[0, -0.5, 0]}>
           <Suspense fallback={null}>
