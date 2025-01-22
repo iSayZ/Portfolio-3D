@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
 import Scene3D from "@/components/scenes/Scene3D";
-import { Overlay } from "./components/Overlay";
-import { LoadingScreen } from "../LoadingScreen";
+import { Suspense, useState } from "react";
+import { LoadingScreen } from "../../LoadingScreen";
 import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
+import { Overlay } from "./components/Overlay";
 
 const Hero = () => {
   const [showOverlay, setShowOverlay] = useState<boolean>(true);
@@ -23,18 +23,16 @@ const Hero = () => {
       <div className="absolute inset-0">
         <div className="w-full h-full">
           <Suspense fallback={<LoadingScreen />}>
-          <Scene3D 
-  onLoaded={() => setIsLoading(false)} 
-/>
+            <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>
         </div>
       </div>
       {/* Disabled for development */}
       {/* {isLoading && <LoadingScreen />} */}
 
-      <Overlay 
-        isOpen={showOverlay} 
-        onToggle={handleExplore} 
+      <Overlay
+        isOpen={showOverlay}
+        onToggle={handleExplore}
         hasExplored={hasExplored}
       />
 

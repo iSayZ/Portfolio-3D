@@ -1,11 +1,20 @@
-import { ChevronDown, ChevronUp, Github, Linkedin, Mail, MenuIcon, Redo, Redo2, Undo2 } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  Github,
+  Linkedin,
+  Mail,
+  MenuIcon,
+  Redo,
+  Redo2,
+  Undo2,
+} from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
 import { ThemeToggleButton } from "@/components/Theming/ThemeToggleButton";
 import { useEffect } from "react";
 
 const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
-
   // /!\ DISABLED FOR NOW /!\ Scroll controls /!\ DISABLED FOR NOW /!\
   // useEffect(() => {
   //   // Stop scrolling if hasExplored is false
@@ -20,7 +29,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
   //     document.body.style.overflow = 'auto';
   //   };
   // }, [hasExplored]);
-  
+
   return (
     <>
       <div
@@ -33,7 +42,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
           <div className="flex gap-4">
             <ThemeToggleButton />
             <Button variant="outline" className="px-2">
-              <MenuIcon className="size-6"/>
+              <MenuIcon className="size-6" />
             </Button>
           </div>
         </nav>
@@ -47,9 +56,9 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
             Développeur Full Stack JS · Créateur d'expériences web
           </p>
           <div className="relative group">
-            <Button 
-              onClick={() => onToggle(false)} 
-              variant="secondary" 
+            <Button
+              onClick={() => onToggle(false)}
+              variant="secondary"
               className="py-5 bg-slate-50 text-black hover:text-slate-50 animate-pulse"
             >
               Explorer mon univers
@@ -57,9 +66,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
             {!hasExplored && (
               <div className="flex flex-col items-center gap-2 mt-4 animate-bounce text-slate-50/80">
                 <ChevronUp className="w-8 h-8" />
-                <p className="text-sm">
-                  Commence par explorer mon univers 3D
-                </p>
+                <p className="text-sm">Commence par explorer mon univers 3D</p>
               </div>
             )}
           </div>

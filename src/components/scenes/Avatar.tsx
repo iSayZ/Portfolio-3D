@@ -55,7 +55,8 @@ export function Avatar({ animation, ...props }: AvatarProps) {
     const typing = useFBX("/assets/3D/animations/typing.fbx").animations[0];
     const fight = useFBX("/assets/3D/animations/fight.fbx").animations[0];
     const jump = useFBX("/assets/3D/animations/jump.fbx").animations[0];
-    const breakdance = useFBX("/assets/3D/animations/breakdance.fbx").animations[0];
+    const breakdance = useFBX("/assets/3D/animations/breakdance.fbx")
+      .animations[0];
 
     if (falling) falling.name = "Falling";
     if (salute) salute.name = "Salute";

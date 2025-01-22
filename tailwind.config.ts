@@ -62,14 +62,14 @@ const config: Config = {
         },
       },
       keyframes: {
-        'fade-out': {
-          '0%': { opacity: '1' },
-          '90%': { opacity: '0.5' },
-          '100%': { opacity: '0', visibility: 'hidden' },
+        "fade-out": {
+          "0%": { opacity: "1" },
+          "90%": { opacity: "0.5" },
+          "100%": { opacity: "0", visibility: "hidden" },
         },
       },
       animation: {
-        'fade-out': 'fade-out 3s ease-in-out forwards', // Ajoutez une durée par défaut
+        "fade-out": "fade-out 3s ease-in-out forwards", // Ajoutez une durée par défaut
       },
     },
   },

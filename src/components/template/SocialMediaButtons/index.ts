@@ -1,1 +1,1 @@
-export { default as SocialMediaButtons } from './component';
+export { default as SocialMediaButtons } from "./component";
