@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Theming/ThemingProvider";
+import { SocialMediaButtons } from "@/components/template/SocialMediaButtons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <SocialMediaButtons />
         </ThemeProvider>
       </body>
     </html>

@@ -32,9 +32,9 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
           <div className="text-slate-50 font-mono text-lg">ae.dev</div>
           <div className="flex gap-6">
             <ThemeToggleButton />
-            <Github className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" />
+            {/* <Github className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" />
             <Linkedin className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" />
-            <Mail className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" />
+            <Mail className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" /> */}
           </div>
         </nav>
 
