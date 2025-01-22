@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp, Github, Linkedin, Mail, Redo, Redo2, Undo2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Github, Linkedin, Mail, MenuIcon, Redo, Redo2, Undo2 } from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
 import { ThemeToggleButton } from "@/components/Theming/ThemeToggleButton";
@@ -6,20 +6,20 @@ import { useEffect } from "react";
 
 const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
 
-  // Scroll controls
-  useEffect(() => {
-    // Stop scrolling if hasExplored is false
-    if (!hasExplored) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+  // /!\ DISABLED FOR NOW /!\ Scroll controls /!\ DISABLED FOR NOW /!\
+  // useEffect(() => {
+  //   // Stop scrolling if hasExplored is false
+  //   if (!hasExplored) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = 'auto';
+  //   }
 
-    // Cleanup on component destruction
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [hasExplored]);
+  //   // Cleanup on component destruction
+  //   return () => {
+  //     document.body.style.overflow = 'auto';
+  //   };
+  // }, [hasExplored]);
   
   return (
     <>
@@ -29,12 +29,12 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
       >
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
-          <div className="text-slate-50 font-mono text-lg">ae.dev</div>
-          <div className="flex gap-6">
+          <div className="text-slate-50 font-mono text-lg">LOGO</div>
+          <div className="flex gap-4">
             <ThemeToggleButton />
-            {/* <Github className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" />
-            <Linkedin className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" />
-            <Mail className="w-6 h-6 text-slate-50 hover:text-white cursor-pointer transition-colors" /> */}
+            <Button variant="outline" className="px-2">
+              <MenuIcon className="size-6"/>
+            </Button>
           </div>
         </nav>
 
