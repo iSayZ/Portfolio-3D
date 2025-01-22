@@ -30,12 +30,12 @@ const Hero = () => {
         <div className="w-full h-full">
           <Suspense fallback={<LoadingScreen />}>
             {/* Disabled for development */}
-            {/* <Scene3D onLoaded={() => setIsLoading(false)} /> */}
+            <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>
         </div>
       </div>
       {/* Disabled for development */}
-      {/* {isLoading && <LoadingScreen />} */}
+      {isLoading && <LoadingScreen />}
 
       <Overlay
         isOpen={showOverlay}
