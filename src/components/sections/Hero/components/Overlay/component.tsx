@@ -40,7 +40,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
         <nav className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
           <div className="text-slate-50 font-mono text-lg">LOGO</div>
           <div className="flex gap-4">
-            <ThemeToggleButton />
+            {/* <ThemeToggleButton /> */}
             <Button variant="outline" className="px-2">
               <MenuIcon className="size-6" />
             </Button>

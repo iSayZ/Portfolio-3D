@@ -22,7 +22,7 @@ export const hardSkills: Skill[] = [
   { path: "/assets/images/icons/technos/mongodb.svg", name: "MongoDB" },
   { path: "/assets/images/icons/technos/mysql.svg", name: "MySQL" },
   { path: "/assets/images/icons/technos/tailwind.svg", name: "Tailwind CSS" },
-  { path: "/assets/images/icons/technos/github.svg", name: "Git" },
+  { path: "/assets/images/icons/technos/github.svg", name: "Github" },
   { path: "/assets/images/icons/technos/docker.svg", name: "Docker" },
   { path: "/assets/images/icons/technos/figma.svg", name: "Figma" },
 ];

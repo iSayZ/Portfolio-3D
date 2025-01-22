@@ -5,11 +5,17 @@ import { Suspense, useState } from "react";
 import { LoadingScreen } from "../../LoadingScreen";
 import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
 import { Overlay } from "./components/Overlay";
+import { useHeroScroll } from "./hooks/useHeroScroll";
 
-const Hero = () => {
+const Hero = () => { 
   const [showOverlay, setShowOverlay] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasExplored, setHasExplored] = useState<boolean>(false);
+
+  useHeroScroll({ 
+    showOverlay,
+    offset: 96 // 6rem in px 
+  });
 
   const handleExplore = (value: boolean) => {
     setShowOverlay(value);
@@ -19,7 +25,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full h-screen">
+    <section id="hero" className="relative w-full h-screen">
       <div className="absolute inset-0">
         <div className="w-full h-full">
           <Suspense fallback={<LoadingScreen />}>
@@ -37,7 +43,7 @@ const Hero = () => {
       />
 
       <HelpFor3DInteraction isOpen={showOverlay} />
-    </div>
+    </section>
   );
 };
 

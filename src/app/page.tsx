@@ -8,6 +8,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
+      <div className="w-full h-screen bg-slate-500"></div>
     </div>
   );
 }
