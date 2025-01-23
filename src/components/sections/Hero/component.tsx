@@ -25,17 +25,17 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative w-full h-screen">
+    <section id="hero" className="relative w-full h-screen bg-darkBlue">
       <div className="absolute inset-0">
         <div className="w-full h-full">
           <Suspense fallback={<LoadingScreen />}>
             {/* Disabled for development */}
-            {/* <Scene3D onLoaded={() => setIsLoading(false)} /> */}
+            <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>
         </div>
       </div>
       {/* Disabled for development */}
-      {/* {isLoading && <LoadingScreen />} */}
+      {isLoading && <LoadingScreen />}
 
       <Overlay
         isOpen={showOverlay}

@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className="scroll-smooth">
       <body className="bg-neutral-900">
         <ThemeProvider
           attribute="class"

@@ -59,7 +59,7 @@ export const techStack: Record<string, Technology> = {
     {
       id: 'crumble',
       title: 'Crumble',
-      cover: '/assets/images/projects/crumble/index.png',
+      cover: '/assets/images/projects/crumble/test.png',
       desc: "Crumble est un réseau social inspiré de Facebook, que j'ai développé seul, avec un fort accent sur l'interactivité et la réactivité. Ce projet intègre des fonctionnalités d'authentification sécurisée avec JWT, une gestion complète des profils utilisateurs, ainsi qu'un système de messagerie instantanée via WebSocket. Les utilisateurs peuvent publier du contenu, commenter, liker, et gérer leurs amis, le tout dans une interface réactive et responsive. J'ai également mis en place un panneau d'administration pour la gestion des utilisateurs et des publications.",
       technologies: [
         techStack.react,

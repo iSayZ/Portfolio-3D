@@ -1,4 +1,5 @@
 import { About } from "@/components/sections/About";
+import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
@@ -10,7 +11,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
-      <div className="w-full h-screen bg-slate-500"></div>
+      <Footer />
     </div>
   );
 }

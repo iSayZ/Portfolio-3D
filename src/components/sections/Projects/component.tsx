@@ -19,10 +19,6 @@ export const Projects = () => {
     setVisibleProjects((prev) => prev + 3);
   }
 
-  const showLessProjects = () => {
-    setVisibleProjects((prev) => prev - 3);
-  }
-
   return (
     <section id="projects">
       <div className="container px-4 mx-auto flex flex-col gap-12">
