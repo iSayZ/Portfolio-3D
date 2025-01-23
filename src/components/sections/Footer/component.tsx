@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             <nav className="flex flex-col items-center space-y-4">
               <h3 className="text-lg font-semibold text-foreground">Liens utiles</h3>
               <a href="https://windows.estrine-alexis.fr/" target='_blank' className="text-muted-foreground hover:text-foreground transition-colors">Mon portfolio interactif Windows 11</a>
-              <Button onClick={() => window.open("/assets/documents/CV_Alexis_ESTRINE.pdf")} variant="ghost" className='text-muted-foreground hover:text-foreground transition-colors hover:bg-transparent text-md'>
+              <Button onClick={() => window.open("/assets/documents/CV_Alexis_ESTRINE.pdf")} variant="ghost" className='text-muted-foreground hover:text-foreground transition-colors hover:bg-transparent text-md font-normal'>
                 Voir / Télécharger mon CV
               </Button>
             </nav>

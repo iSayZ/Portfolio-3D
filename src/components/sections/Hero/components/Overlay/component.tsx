@@ -1,18 +1,11 @@
 import {
   ChevronDown,
   ChevronUp,
-  Github,
-  Linkedin,
-  Mail,
   MenuIcon,
-  Redo,
-  Redo2,
   Undo2,
 } from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
-import { ThemeToggleButton } from "@/components/Theming/ThemeToggleButton";
-import { useEffect } from "react";
 
 const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
   // /!\ DISABLED FOR NOW /!\ Scroll controls /!\ DISABLED FOR NOW /!\
@@ -38,7 +31,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
       >
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
-          <div className="text-slate-50 font-mono text-lg">LOGO</div>
+          <div className="text-slate-50 font-mono text-4xl lot">AE</div>
           <div className="flex gap-4">
             {/* <ThemeToggleButton /> */}
             <Button variant="outline" className="px-2">
