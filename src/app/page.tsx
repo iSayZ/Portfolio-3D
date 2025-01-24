@@ -3,6 +3,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
+import BurgerMenu from "@/components/template/BurgerMenu/component";
 import { NavBar } from "@/components/template/NavBar";
 
 export default function Home() {
@@ -23,6 +24,9 @@ export default function Home() {
         <Skills />
         <Projects />
         <Footer />
+
+        {/* Hidden component */}
+        {/* <BurgerMenu /> */}
       </div>
     </div>
   );

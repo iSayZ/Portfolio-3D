@@ -1,11 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { useOverlay } from "@/contexts/OverlayContext";
-import { MenuIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggleButton } from "../Theming/ThemeToggleButton";
-import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
+import BurgerMenu from "../BurgerMenu/component";
 
 const NavBar: React.FC = () => {
   const { isOpen } = useOverlay();
@@ -35,9 +33,7 @@ const NavBar: React.FC = () => {
                 <div className={`flex items-center justify-center ${isScrolled ? "text-foreground" : "text-slate-50"}`}>
                     <ThemeToggleButton />
                 </div>
-                <Button variant="ghost" size="icon" className={`p-5 ${isScrolled ? "text-foreground" : "text-slate-50"}`}>
-                    <MenuIcon className="size-10" />
-                </Button>
+                <BurgerMenu isScrolled={isScrolled} />
       </div>
     </nav>
   );
