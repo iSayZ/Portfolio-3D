@@ -9,7 +9,7 @@ import { BurgerMenuProps } from "./types";
 import { sections } from "./constants";
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ isScrolled }) => {
- const [isOpen, setIsOpen] = useState(true);
+ const [isOpen, setIsOpen] = useState(false);
  const scrollTo = useScrollToSection();
 
  const handleClick = (id: string) => {

@@ -20,7 +20,7 @@ const HelpFor3DInteraction: React.FC = () => {
 
   if (isLargeScreen) {
     return (
-      <div className="absolute bottom-6 left-6 p-4 bg-primary backdrop-blur-sm rounded-lg text-primary-foreground text-sm">
+      <div className="absolute bottom-6 left-6 p-4 bg-secondary/70 backdrop-blur-sm rounded-lg text-secondary-foreground text-sm">
         <p>🖱️ Clic gauche : Rotation</p>
         <p>⚙️ Molette : Zoom</p>
       </div>
@@ -31,14 +31,16 @@ const HelpFor3DInteraction: React.FC = () => {
     <>
       {showMobileHint && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-          <Alert className="bg-primary text-primary-foreground p-4 rounded-lg shadow-md border-none text-center">
+          <Alert className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow-md border-none text-center">
             <AlertTitle className="text-lg font-bold mb-2">
               Interaction mobile
             </AlertTitle>
             <AlertDescription>
               <div className="flex flex-col items-center">
                 <span className="text-sm mb-4">
-                  Glissez pour explorer, pincez pour zoomer
+                  ● Glissez pour explorer
+                  <br />
+                  ● Pincez pour zoomer
                 </span>
                 <div className="flex items-center justify-center">
                   <Image
@@ -54,7 +56,6 @@ const HelpFor3DInteraction: React.FC = () => {
             </AlertDescription>
             <div className="flex justify-center mt-4">
               <Button
-                variant="secondary"
                 onClick={() => setShowMobileHint(false)}
               >
                 J'ai compris !

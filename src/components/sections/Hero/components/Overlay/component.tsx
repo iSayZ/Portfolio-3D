@@ -53,7 +53,8 @@ const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
       {/* Button to redisplay overlay - visible only when overlay is hidden */}
       <Button
         onClick={() => handleExplore(true)}
-        className={`absolute top-6 right-6 p-3 max-sm:right-auto max-sm:left-1/2 max-sm:-translate-x-1/2 ${
+        variant="secondary"
+        className={`absolute top-6 right-6 p-3 max-md:top-4 max-md:right-4 ${
           isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
