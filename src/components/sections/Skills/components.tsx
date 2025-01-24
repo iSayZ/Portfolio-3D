@@ -24,17 +24,17 @@ const Skills: React.FC = () => {
   const isLargeScreen = useIsScreenLarge(768);
 
   return (
-    <section id="skills" className="w-full overflow-hidden">
+    <section id="skills" className="w-full overflow-hidden space-y-24">
       {isLargeScreen ? (
-        <div className="space-y-6">
+        <>
           <SoftSkillsDesktop />
           <HardSkillsDesktop />
-        </div>
+        </>
       ) : (
-        <div className="space-y-24">
+        <>
           <HardSkillsMobile />
           <SoftSkillsMobile />
-        </div>
+        </>
       )}
     </section>
   );
