@@ -42,7 +42,7 @@ const SkillSlider: React.FC<SkillSliderProps> = ({
   }, [isPaused, speed, direction, skills.length]);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full ">
 <div className="absolute left-0 top-0 z-10 h-full w-32 pointer-events-none opacity-70" />
 
       <div

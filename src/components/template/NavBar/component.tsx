@@ -3,20 +3,41 @@
 import { Button } from "@/components/ui/button";
 import { useOverlay } from "@/contexts/OverlayContext";
 import { MenuIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ThemeToggleButton } from "../Theming/ThemeToggleButton";
+import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
 
 const NavBar: React.FC = () => {
   const { isOpen } = useOverlay();
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Tracks whether the user has scrolled past the hero section and updates the isScrolled state to stylize the NavBar
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setIsScrolled(heroBottom < 0);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
-      <div className="text-slate-50 font-mono text-4xl lot z-40">AE</div>
-      <div
-        className={`flex gap-4 z-40 ${isOpen ? "opacity-100" : "opacity-0"}`}
+    <nav className={`fixed top-0 left-0 right-0 py-1 px-4 flex justify-between items-center z-40 ${isOpen ? "" : "pointer-events-none"} transition-all duration-200 ease-in-out ${isScrolled ? 'bg-background/80 backdrop-blur-sm' : ''}`}>
+      <p className={`${isScrolled ? "text-foreground" : "text-slate-50"} font-mono text-4xl lot z-40 mt-[0.6rem]`}>AE</p>
+                  <div
+        className={`flex gap-4 z-40 ${isOpen ? "opacity-100" : "hidden"}`}
       >
-        {/* <ThemeToggleButton /> */}
-        <Button variant="outline" className="px-2">
-          <MenuIcon className="size-6" />
-        </Button>
+                <div className={`flex items-center justify-center ${isScrolled ? "text-foreground" : "text-slate-50"}`}>
+                    <ThemeToggleButton />
+                </div>
+                <Button variant="ghost" size="icon" className={`p-5 ${isScrolled ? "text-foreground" : "text-slate-50"}`}>
+                    <MenuIcon className="size-10" />
+                </Button>
       </div>
     </nav>
   );
