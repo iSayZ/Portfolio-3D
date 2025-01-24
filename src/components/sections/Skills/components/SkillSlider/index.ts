@@ -1,2 +1,2 @@
-export { TechStack, SoftSkills } from "./component";
-export * from "./types";
+export { HardSkillsDesktop, SoftSkillsDesktop } from "./component";
+export * from "../../types";

@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { SkillSliderProps } from "./types";
-import { hardSkills, softSkills } from "./constants";
+import { SkillSliderProps } from "../../types";
+import { hardSkills, softSkills } from "../../constants";
 
 const SkillSlider: React.FC<SkillSliderProps> = ({
   skills,
@@ -88,7 +88,7 @@ const SkillSlider: React.FC<SkillSliderProps> = ({
   );
 };
 
-export const TechStack = () => (
+export const HardSkillsDesktop = () => (
   <SkillSlider
     skills={hardSkills}
     direction="left"
@@ -97,7 +97,7 @@ export const TechStack = () => (
   />
 );
 
-export const SoftSkills = () => (
+export const SoftSkillsDesktop = () => (
   <SkillSlider
     skills={softSkills}
     direction="right"

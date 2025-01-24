@@ -11,10 +11,9 @@ const HelpFor3DInteraction: React.FC<HelpFor3DInteractionProps> = ({
   const isLargeScreen = useIsScreenLarge(768);
   const [showMobileHint, setShowMobileHint] = useState(true);
 
-  // Gestion de l'affichage automatique sur mobile
   useEffect(() => {
     if (!isLargeScreen && !isOpen) {
-      setShowMobileHint(true); // Réinitialise l'affichage sur mobile
+      setShowMobileHint(true);
     }
   }, [isLargeScreen, isOpen]);
 
@@ -57,7 +56,7 @@ const HelpFor3DInteraction: React.FC<HelpFor3DInteractionProps> = ({
             <div className="flex justify-center mt-4">
               <Button
                 variant="secondary"
-                onClick={() => setShowMobileHint(false)} // Ferme la modal
+                onClick={() => setShowMobileHint(false)}
               >
                 J'ai compris !
               </Button>

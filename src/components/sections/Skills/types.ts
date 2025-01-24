@@ -3,6 +3,7 @@ export interface Skill {
   path?: string;
   name: string;
   color?: string;
+  textColor?: string;
 }
 
 export interface SkillSliderProps {
