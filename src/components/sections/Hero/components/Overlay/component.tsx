@@ -1,22 +1,15 @@
-import { ChevronDown, ChevronUp, MenuIcon, Undo2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Undo2 } from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
+import { useOverlay } from "@/contexts/OverlayContext";
 
-const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
-  // /!\ DISABLED FOR NOW /!\ Scroll controls /!\ DISABLED FOR NOW /!\
-  // useEffect(() => {
-  //   // Stop scrolling if hasExplored is false
-  //   if (!hasExplored) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'auto';
-  //   }
+const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
+  const { isOpen, setIsOpen } = useOverlay();
 
-  //   // Cleanup on component destruction
-  //   return () => {
-  //     document.body.style.overflow = 'auto';
-  //   };
-  // }, [hasExplored]);
+  const handleExplore = (value: boolean) => {
+    setIsOpen(value);
+    if (!value) setHasExplored(true);
+  };
 
   return (
     <>
@@ -24,17 +17,6 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
         className={`absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-500 
           ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        {/* Navigation */}
-        <nav className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
-          <div className="text-slate-50 font-mono text-4xl lot">AE</div>
-          <div className="flex gap-4">
-            {/* <ThemeToggleButton /> */}
-            <Button variant="outline" className="px-2">
-              <MenuIcon className="size-6" />
-            </Button>
-          </div>
-        </nav>
-
         {/* Central content */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
           <h1 className="text-6xl md:text-7xl font-bold text-slate-50 mb-6">
@@ -45,7 +27,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
           </p>
           <div className="relative group">
             <Button
-              onClick={() => onToggle(false)}
+              onClick={() => handleExplore(false)}
               variant="secondary"
               className="py-5 bg-slate-50 text-black hover:text-slate-50 animate-pulse"
             >
@@ -70,7 +52,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onToggle, hasExplored }) => {
 
       {/* Button to redisplay overlay - visible only when overlay is hidden */}
       <Button
-        onClick={() => onToggle(true)}
+        onClick={() => handleExplore(true)}
         className={`absolute top-6 right-6 p-3 max-sm:right-auto max-sm:left-1/2 max-sm:-translate-x-1/2 ${
           isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}

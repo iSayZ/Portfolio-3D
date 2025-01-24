@@ -5,24 +5,18 @@ import { Suspense, useState } from "react";
 import { LoadingScreen } from "../../LoadingScreen";
 import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
 import { Overlay } from "./components/Overlay";
+import { useOverlay } from "@/contexts/OverlayContext";
 import { useHeroScroll } from "./hooks/useHeroScroll";
 
 const Hero = () => {
-  const [showOverlay, setShowOverlay] = useState<boolean>(true);
+  const { isOpen } = useOverlay();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasExplored, setHasExplored] = useState<boolean>(false);
 
   useHeroScroll({
-    showOverlay,
+    showOverlay: isOpen,
     offset: 96, // 6rem in px
   });
-
-  const handleExplore = (value: boolean) => {
-    setShowOverlay(value);
-    if (!value) {
-      setHasExplored(true);
-    }
-  };
 
   return (
     <section id="hero" className="relative w-full h-screen bg-darkBlue">
@@ -37,13 +31,9 @@ const Hero = () => {
       {/* Disabled for development */}
       {isLoading && <LoadingScreen />}
 
-      <Overlay
-        isOpen={showOverlay}
-        onToggle={handleExplore}
-        hasExplored={hasExplored}
-      />
+      <Overlay hasExplored={hasExplored} setHasExplored={setHasExplored} />
 
-      <HelpFor3DInteraction isOpen={showOverlay} />
+      <HelpFor3DInteraction />
     </section>
   );
 };

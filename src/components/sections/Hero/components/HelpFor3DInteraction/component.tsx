@@ -1,13 +1,12 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"; // Import shadcn alert
-import { Button } from "@/components/ui/button"; // Bouton shadcn
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { useOverlay } from "@/contexts/OverlayContext";
 import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { HelpFor3DInteractionProps } from "./types";
 
-const HelpFor3DInteraction: React.FC<HelpFor3DInteractionProps> = ({
-  isOpen,
-}) => {
+const HelpFor3DInteraction: React.FC = () => {
+  const { isOpen } = useOverlay();
   const isLargeScreen = useIsScreenLarge(768);
   const [showMobileHint, setShowMobileHint] = useState(true);
 
