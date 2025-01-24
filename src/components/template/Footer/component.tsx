@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-background border-t border-border">
+    <footer className="relative w-full bg-background border-t border-border">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* First column - Navigation */}

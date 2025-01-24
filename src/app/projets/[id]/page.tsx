@@ -17,7 +17,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
  }
 
  return (
-   <div className="min-h-screen w-full bg-background p-8">
+   <div className="min-h-screen w-full bg-background px-8 py-32">
      <Button 
        variant="ghost" 
        onClick={() => router.back()}

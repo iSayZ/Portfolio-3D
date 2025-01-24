@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/template/Theming/ThemingProvider";
 import { SocialMediaButtons } from "@/components/template/SocialMediaButtons";
 import { NavBar } from "@/components/template/NavBar";
+import { Footer } from "@/components/template/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -80,6 +81,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <SocialMediaButtons />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
