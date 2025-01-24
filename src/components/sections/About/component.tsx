@@ -8,13 +8,13 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full flex flex-col items-center justify-center gap-24 bg-background"
+      className="w-full flex flex-col items-center justify-center gap-24"
     >
       <div className="container px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
         {/* Photo Container */}
         <div className="w-full max-w-sm md:w-1/2 flex justify-center">
-          <div className="relative bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full h-48 w-48 md:h-64 md:w-64">
-            <Image
+        <div className="relative bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 rounded-full h-48 w-48 md:h-64 md:w-64 shadow-md">
+                    <Image
               src="/assets/images/profil/profil.png"
               alt="Photo de profil"
               fill
