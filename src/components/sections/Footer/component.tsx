@@ -3,11 +3,12 @@
 import React from "react";
 import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { sections } from "@/components/template/BurgerMenu/constants";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const Footer: React.FC = () => {
-  const router = useRouter();
-
+  const scrollTo = useScrollToSection();
+  
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,35 +16,18 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* First column - Navigation */}
-          <nav className="flex flex-col items-center space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">
-              Navigation
-            </h3>
-            <a
-              href="#hero"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Accueil
-            </a>
-            <a
-              href="#about"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              À propos
-            </a>
-            <a
-              href="#skills"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Compétences
-            </a>
-            <a
-              href="#projects"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Projets
-            </a>
-          </nav>
+         <nav className="flex flex-col items-center space-y-4">
+           <h3 className="text-lg font-semibold text-foreground">Navigation</h3>
+           {sections.map((section) => (
+             <button
+               key={section.id}
+               onClick={() => scrollTo(section.id)}
+               className="text-muted-foreground hover:text-foreground transition-colors"
+             >
+               {section.name}
+             </button>
+           ))}
+         </nav>
 
           {/* Second column */}
           <div className="flex flex-col items-center gap-8">
@@ -110,7 +94,7 @@ const Footer: React.FC = () => {
               </Button>
             </nav>
 
-            <Button onClick={() => router.push("#hero")}>
+            <Button onClick={() => scrollTo('#hero')}>
               Retour en haut
               <ArrowUp />
             </Button>
