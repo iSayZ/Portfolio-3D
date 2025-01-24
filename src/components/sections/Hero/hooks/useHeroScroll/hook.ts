@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface UseHeroScrollProps {
   showOverlay: boolean;
   offset?: number;
 }
 
-export const useHeroScroll = ({ showOverlay, offset = 96 }: UseHeroScrollProps) => {
+export const useHeroScroll = ({
+  showOverlay,
+  offset = 96,
+}: UseHeroScrollProps) => {
   useEffect(() => {
     let isScrolling = false;
     let touchStartY = 0;
@@ -13,10 +16,11 @@ export const useHeroScroll = ({ showOverlay, offset = 96 }: UseHeroScrollProps) 
     const scrollToAbout = () => {
       const aboutSection = document.querySelector("#about");
       if (aboutSection) {
-        const targetPosition = aboutSection.getBoundingClientRect().top + window.scrollY - offset;
+        const targetPosition =
+          aboutSection.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({
           top: targetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
         setTimeout(() => {
           isScrolling = false;
@@ -26,12 +30,12 @@ export const useHeroScroll = ({ showOverlay, offset = 96 }: UseHeroScrollProps) 
 
     const handleWheel = (e: Event) => {
       if (!showOverlay) return;
-      
+
       const wheelEvent = e as WheelEvent;
       e.preventDefault();
-      
+
       if (isScrolling || wheelEvent.deltaY < 0) return;
-      
+
       isScrolling = true;
       scrollToAbout();
     };
@@ -57,8 +61,12 @@ export const useHeroScroll = ({ showOverlay, offset = 96 }: UseHeroScrollProps) 
     const heroSection = document.querySelector("#hero");
     if (heroSection) {
       heroSection.addEventListener("wheel", handleWheel, { passive: false });
-      heroSection.addEventListener("touchstart", handleTouchStart, { passive: false });
-      heroSection.addEventListener("touchend", handleTouchEnd, { passive: false });
+      heroSection.addEventListener("touchstart", handleTouchStart, {
+        passive: false,
+      });
+      heroSection.addEventListener("touchend", handleTouchEnd, {
+        passive: false,
+      });
     }
 
     return () => {

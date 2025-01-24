@@ -1,20 +1,20 @@
 "use client";
 
-import Scene3D from "@/components/scenes/Scene3D";
+import Scene3D from "@/components/3D/scenes/Scene3D";
 import { Suspense, useState } from "react";
 import { LoadingScreen } from "../../LoadingScreen";
 import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
 import { Overlay } from "./components/Overlay";
 import { useHeroScroll } from "./hooks/useHeroScroll";
 
-const Hero = () => { 
+const Hero = () => {
   const [showOverlay, setShowOverlay] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasExplored, setHasExplored] = useState<boolean>(false);
 
-  useHeroScroll({ 
+  useHeroScroll({
     showOverlay,
-    offset: 96 // 6rem in px 
+    offset: 96, // 6rem in px
   });
 
   const handleExplore = (value: boolean) => {

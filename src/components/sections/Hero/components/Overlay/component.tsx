@@ -1,9 +1,4 @@
-import {
-  ChevronDown,
-  ChevronUp,
-  MenuIcon,
-  Undo2,
-} from "lucide-react";
+import { ChevronDown, ChevronUp, MenuIcon, Undo2 } from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
 

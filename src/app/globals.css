@@ -86,12 +86,12 @@
 }
 
 @font-face {
-  font-family: 'LOT';
-  src: url('/assets/fonts/LOT.otf') format('opentype');
+  font-family: "LOT";
+  src: url("/assets/fonts/LOT.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 .lot {
-  font-family: 'LOT', sans-serif;
+  font-family: "LOT", sans-serif;
 }

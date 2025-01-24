@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useIsScreenLarge } from '@/hooks/useIsLargeScreen';
-import { ProjectCard } from './components/ProjectCard';
-import { projects } from './constants';
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
+import { ProjectCard } from "./components/ProjectCard";
+import { projects } from "./constants";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export const Projects = () => {
   const [visibleProjects, setVisibleProjects] = useState<number>(3);
-  
+
   const isLargeScreen = useIsScreenLarge(768);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Projects = () => {
 
   const showMoreProjects = () => {
     setVisibleProjects((prev) => prev + 3);
-  }
+  };
 
   return (
     <section id="projects">
@@ -28,14 +28,18 @@ export const Projects = () => {
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-        <div className='w-full flex justify-center'>
-          {projects.length > visibleProjects ?
-          <Button onClick={showMoreProjects} variant='ghost' className='text-blue-600 underline hover:text-blue-400 hover:bg-none'>
-            Afficher plus de projets
-          </Button>
-          :
-          ""
-          }
+        <div className="w-full flex justify-center">
+          {projects.length > visibleProjects ? (
+            <Button
+              onClick={showMoreProjects}
+              variant="ghost"
+              className="text-blue-600 underline hover:text-blue-400 hover:bg-none"
+            >
+              Afficher plus de projets
+            </Button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </section>
