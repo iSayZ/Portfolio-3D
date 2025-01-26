@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, ZoomIn, ZoomOut } from 'lucide-react';
 import { useOverlay } from '@/contexts/OverlayContext';
 
 interface ZoomControlsProps {
@@ -8,7 +8,7 @@ interface ZoomControlsProps {
 }
 
 const ZoomControls: React.FC<ZoomControlsProps> = ({ onScaleChange }) => {
-      const { isOpen } = useOverlay();
+    const { isOpen } = useOverlay();
     
   const [scale, setScale] = useState<number>(1);
   const MIN_SCALE = 0.4;
@@ -28,16 +28,16 @@ const ZoomControls: React.FC<ZoomControlsProps> = ({ onScaleChange }) => {
       <Button 
         onClick={() => handleZoom(true)}
         disabled={scale >= MAX_SCALE}
-        className="bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80 p-2"
+        className="bg-secondary/70 size-min text-black backdrop-blur-sm hover:bg-secondary/80 p-2"
       >
-        <Plus className="h-4 w-4" />
+        <ZoomIn className="size-6 md:size-8" />
       </Button>
       <Button 
         onClick={() => handleZoom(false)}
         disabled={scale <= MIN_SCALE}
-        className="bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80 p-2"
+        className="bg-secondary/70 size-min text-black backdrop-blur-sm hover:bg-secondary/80 p-2"
       >
-        <Minus className="h-4 w-4" />
+        <ZoomOut className="size-6 md:size-8" />
       </Button>
     </div>
   );

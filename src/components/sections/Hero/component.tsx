@@ -1,7 +1,7 @@
 "use client";
 
 import Scene3D from "@/components/3D/scenes/Scene3D";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { LoadingScreen } from "../../LoadingScreen";
 import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
 import { Overlay } from "./components/Overlay";
@@ -10,6 +10,11 @@ import { useHeroScroll } from "./hooks/useHeroScroll";
 import { useLoading } from "@/contexts/LoadingContext";
 import AvatarControls from "./components/AvatarControls/component";
 import { ZoomControls } from "./components/ZoomControls";
+import { DirectionControls } from "./components/DirectionControls";
+import { GroupRotation } from "./components/DirectionControls/types";
+import BackgroundControls from "./components/BackgroundControls/component";
+import { BackgroundType } from "./components/BackgroundControls";
+import { backgrounds } from "./components/BackgroundControls/constants";
 
 const Hero = () => {
   const { setIsLoading } = useLoading();
@@ -17,6 +22,15 @@ const Hero = () => {
   const [hasExplored, setHasExplored] = useState<boolean>(false);
   const [avatarAnimation, setAvatarAnimation] = useState<string>('Typing');
   const [groupScale, setGroupScale] = useState<number>(1);
+  const [groupRotation, setGroupRotation] = useState<GroupRotation>({ x: 0, y: 0 });
+  const [background, setBackground] = useState<BackgroundType>('galaxy');
+
+  const handleRotationChange = (deltaX: number, deltaY: number) => {
+    setGroupRotation(prev => ({
+      x: prev.x + deltaX,
+      y: prev.y + deltaY
+    }));
+  };
 
   useHeroScroll({
     showOverlay: isOpen,
@@ -26,25 +40,30 @@ const Hero = () => {
   return (
     <section id="hero" className="relative w-full h-screen">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-purple-900/60 to-violet-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-fuchsia-900/40 via-indigo-950/60 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-pink-900/30 via-transparent to-transparent" />
+      {backgrounds[background].gradients.map((gradient, index) => (
+        <div key={index} className={`absolute inset-0 transition-colors duration-1000 ${gradient}`} />
+      ))}
 
       {/* Content */}
       <div className="absolute inset-0">
         <div className="w-full h-full">
           {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-            <Scene3D onLoaded={() => setIsLoading(false)} avatarAnimation={avatarAnimation} groupScale={groupScale} />
+            <Scene3D onLoaded={() => setIsLoading(false)} avatarAnimation={avatarAnimation} groupScale={groupScale} groupRotation={groupRotation} />
           </Suspense>
         </div>
       </div>
 
       <Overlay hasExplored={hasExplored} setHasExplored={setHasExplored} />
 
+      <BackgroundControls
+        currentBackground={background}
+        onBackgroundChange={setBackground}
+      />
       <HelpFor3DInteraction />
       <AvatarControls onAnimationChange={setAvatarAnimation} />
       <ZoomControls onScaleChange={setGroupScale} />
+      <DirectionControls onRotationChange={handleRotationChange} />
 
     </section>
   );
