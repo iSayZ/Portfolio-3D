@@ -1,90 +1,62 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowLeft, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { projects } from "@/config/projects.config";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { projects } from "@/config/projects.config";
+
+import { ProjectNavigationBar } from "./components/ProjectNavigationBar";
+import { ProjectCarousel } from "./components/ProjectCarousel";
+import { ProjectTitle } from "./components/ProjectTitle";
+import { ProjectLinks } from "./components/ProjectLinks";
+import { ProjectDescription } from "./components/ProjectDescription";
+import { ProjectTechnologies } from "./components/ProjectTechnologies";
+import { FullScreenCarousel } from "./components/FullScreenCarousel";
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const project = projects.find((p) => p.id === params.id);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
-  if (!project) {
-    return router.push("/");
-  }
+  if (!project) return router.push("/");
 
   return (
-    <div className="min-h-screen w-full bg-background px-8 py-32">
-      <Button
-        variant="ghost"
-        onClick={() => router.back()}
-        className="mb-8 hover:bg-transparent"
-      >
-        <ArrowLeft className="mr-2" />
-        Retour
-      </Button>
+    <div className="min-h-screen w-full pt-12 pb-16">
+      <div className="relative h-[50vh] md:h-[60vh] bg-black">
+        <ProjectNavigationBar
+          onBack={() => router.back()}
+          onFullScreen={() => setIsFullScreen(true)}
+        />
 
-      <div className="container mx-auto max-w-6xl">
-        <Card className="overflow-hidden bg-card/50 backdrop-blur-sm">
-          <div className="relative w-full h-[400px]">
-            <Image
-              src={project.cover || "null"}
-              alt={project.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+        {project.screenshots.length > 0 && (
+          <ProjectCarousel screenshots={project.screenshots} />
+        )}
 
-          <CardContent className="p-8">
-            <div className="flex justify-between items-start gap-4 mb-6">
-              <div>
-                <h1 className="text-4xl font-bold text-foreground mb-2">
-                  {project.title}
-                </h1>
-                <p className="text-muted-foreground">{project.date}</p>
-              </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-              {project.link && (
-                <Button
-                  variant="outline"
-                  onClick={() => window.open(project.link)}
-                  className="hover:bg-primary hover:text-primary-foreground"
-                >
-                  <Github className="mr-2" />
-                  Voir le projet
-                </Button>
-              )}
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">Description</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.desc}
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-4">Technologies</h2>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge
-                      key={tech.name}
-                      className="bg-primary/10 text-primary hover:bg-primary/20"
-                    >
-                      {tech.name}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <ProjectTitle
+          title={project.title}
+          date={project.date}
+          isInConstruction={project.isInConstruction}
+        />
       </div>
+
+      <div className="container mx-auto max-w-6xl px-4 pt-8">
+        <div className="grid md:grid-cols-1 gap-8">
+          <ProjectLinks
+            githubLink={project.githubRepoLink}
+            demoLink={project.demoLink}
+            videoLink={project.videoDemoLink}
+          />
+          <ProjectDescription description={project.desc} />
+          <ProjectTechnologies technologies={project.technologies} />
+        </div>
+      </div>
+
+      <FullScreenCarousel
+        images={project.screenshots}
+        isOpen={isFullScreen}
+        onClose={() => setIsFullScreen(false)}
+      />
     </div>
   );
 }

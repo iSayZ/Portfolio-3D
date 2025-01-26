@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/template/Theming/ThemingProvider";
 import { SocialMediaButtons } from "@/components/template/SocialMediaButtons";
 import { NavBar } from "@/components/template/NavBar";
 import { Footer } from "@/components/template/Footer";
-import { LoadingProvider } from "@/contexts/LoadingContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,27 +66,25 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`scroll-smooth ${inter.className}`}>
       <body className="bg-neutral-900">
-        <LoadingProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* Gradient Background */}
-            <div className="fixed inset-0 bg-background">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-purple-900/40 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-rose-900/30 via-transparent to-transparent" />
-            </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* Gradient Background */}
+          <div className="fixed inset-0 bg-background -z-10">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-purple-900/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-rose-900/30 via-transparent to-transparent" />
+          </div>
 
-            {/* Content */}
-            <NavBar />
-            {children}
-            <SocialMediaButtons />
-            <Footer />
-          </ThemeProvider>
-        </LoadingProvider>
+          {/* Content */}
+          <NavBar />
+          {children}
+          <SocialMediaButtons />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

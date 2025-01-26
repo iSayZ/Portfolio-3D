@@ -12,8 +12,11 @@ export interface Project {
   cover?: string;
   logo?: string;
   bgColor?: string;
+  screenshots: string[];
   technologies: Technology[];
-  link: string;
-  isActive?: boolean;
+  demoLink?: string;
+  videoDemoLink?: string;
+  githubRepoLink?: string;
+  isInConstruction: boolean;
   date: string;
 }

@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
   const { isOpen } = useOverlay();
   const router = useRouter();
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // Tracks whether the user has scrolled past the hero section and updates the isScrolled state to stylize the NavBar
   useEffect(() => {
@@ -29,7 +29,7 @@ const NavBar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 py-1 px-4 md:px-6 flex justify-between items-center z-40 ${isOpen ? "" : "pointer-events-none"} transition-all duration-200 ease-in-out ${isScrolled ? "bg-background/80 backdrop-blur-sm" : ""}`}
+      className={`fixed top-0 left-0 right-0 h-12 py-1 px-4 md:px-6 flex justify-between items-center z-40 ${isOpen ? "" : "pointer-events-none"} transition-all duration-200 ease-in-out ${isScrolled ? "bg-background/80 backdrop-blur-sm" : ""}`}
     >
       <Button
         variant="ghost"

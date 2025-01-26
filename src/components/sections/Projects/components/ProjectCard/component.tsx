@@ -15,7 +15,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       className="overflow-hidden group relative cursor-pointer hover:bg-muted transition"
       onClick={() => router.push(`/projets/${project.id}`)}
     >
-      {project.isActive && (
+      {project.isInConstruction && (
         <Badge
           variant="default"
           className="absolute top-4 right-4 z-10 bg-amber-500/80 hover:bg-amber-500"
@@ -78,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <CardFooter className="p-6 pt-0">
         <Button
           className="w-full"
-          onClick={() => window.open(project.link, "_blank")}
+          onClick={() => router.push(`/projets/${project.id}`)}
         >
           En savoir plus
         </Button>
