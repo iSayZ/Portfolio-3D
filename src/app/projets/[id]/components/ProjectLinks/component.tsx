@@ -5,12 +5,14 @@ interface ProjectLinksProps {
   githubLink?: string;
   demoLink?: string;
   videoLink?: string;
+  onVideoClick?: () => void;
 }
 
 const ProjectLinks = ({
   githubLink,
   demoLink,
   videoLink,
+  onVideoClick,
 }: ProjectLinksProps) => {
   return (
     <div className="flex flex-wrap gap-4">
@@ -33,7 +35,7 @@ const ProjectLinks = ({
         </Button>
       )}
       {videoLink && (
-        <Button variant="destructive" onClick={() => window.open(videoLink)}>
+        <Button variant="destructive" onClick={onVideoClick}>
           <Play className="mr-2" />
           Voir la vidéo
         </Button>

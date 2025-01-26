@@ -11,11 +11,13 @@ import { ProjectLinks } from "./components/ProjectLinks";
 import { ProjectDescription } from "./components/ProjectDescription";
 import { ProjectTechnologies } from "./components/ProjectTechnologies";
 import { FullScreenCarousel } from "./components/FullScreenCarousel";
+import { VideoPlayer } from "./components/VideoPlayer";
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const project = projects.find((p) => p.id === params.id);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
   if (!project) return router.push("/");
 
@@ -46,6 +48,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
             githubLink={project.githubRepoLink}
             demoLink={project.demoLink}
             videoLink={project.videoDemoLink}
+            onVideoClick={() => setIsVideoOpen(true)}
           />
           <ProjectDescription description={project.desc} />
           <ProjectTechnologies technologies={project.technologies} />
@@ -57,6 +60,12 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         isOpen={isFullScreen}
         onClose={() => setIsFullScreen(false)}
       />
+
+      {project.videoDemoLink && <VideoPlayer
+        videoId={project.videoDemoLink}
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+      />}
     </div>
   );
 }
