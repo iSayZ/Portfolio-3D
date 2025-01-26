@@ -1,19 +1,20 @@
 import { Github, Linkedin, Mail } from "lucide-react";
-import { socialLink } from "./types";
+import { SocialButton } from "./types";
+import { socialLinks } from "@/config/links.config";
 
-export const socialLinks: socialLink[] = [
+export const socialButtons: SocialButton[] = [
   {
-    link: "https://github.com/iSayZ",
+    link: socialLinks.github.url,
     bgColor: "bg-slate-900",
     icon: <Github className="size-6" />,
   },
   {
-    link: "https://www.linkedin.com/in/alexis-estrine/",
+    link: socialLinks.linkedin.url,
     bgColor: "bg-blue-700",
     icon: <Linkedin className="size-6" />,
   },
   {
-    link: "mailto:estrine.alexis@gmail.com",
+    link: `mailto:${socialLinks.mail.url}`,
     bgColor: "bg-red-500",
     icon: <Mail className="size-6" />,
   },

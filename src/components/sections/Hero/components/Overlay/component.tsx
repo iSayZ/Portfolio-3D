@@ -2,6 +2,7 @@ import { ChevronDown, ChevronUp, Undo2 } from "lucide-react";
 import { OverlayProps } from "./types";
 import { Button } from "@/components/ui/button";
 import { useOverlay } from "@/contexts/OverlayContext";
+import { contentsConfig } from "@/config/contents.config";
 
 const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
   const { isOpen, setIsOpen } = useOverlay();
@@ -20,10 +21,10 @@ const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
         {/* Central content */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
           <h1 className="text-6xl md:text-7xl font-bold text-slate-50 mb-6">
-            Alexis Estrine
+            {contentsConfig.hero.title}
           </h1>
           <p className="text-xl text-slate-50 mb-8">
-            Développeur Full Stack JS · Créateur d'expériences web
+            {contentsConfig.hero.description}
           </p>
           <div className="relative group">
             <Button

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { hardSkillsMobile } from "../../constants";
+import { hardSkillsMobile } from "@/config/skills.config";
 import { Skill } from "../../types";
 import Image from "next/image";
 

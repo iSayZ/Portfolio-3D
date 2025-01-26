@@ -2,7 +2,7 @@
 
 import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
 import { ProjectCard } from "./components/ProjectCard";
-import { projects } from "./constants";
+import { projects } from "@/config/projects.config";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 

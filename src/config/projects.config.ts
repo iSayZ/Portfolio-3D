@@ -17,8 +17,9 @@ import {
   SiNestjs,
   SiSocketdotio,
 } from "react-icons/si";
-import { Project, Technology } from "./types";
+import { Project, Technology } from "@/components/sections/Projects";
 
+// Technology badge visible in ProjectCard
 export const techStack: Record<string, Technology> = {
   react: { name: "React", icon: SiReact, color: "#61DAFB" },
   next: {

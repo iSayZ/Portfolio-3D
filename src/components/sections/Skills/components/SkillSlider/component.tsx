@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { SkillSliderProps } from "../../types";
-import { hardSkills, softSkills } from "../../constants";
+import { hardSkills, softSkills } from "@/config/skills.config";
 
 const SkillSlider: React.FC<SkillSliderProps> = ({
   skills,

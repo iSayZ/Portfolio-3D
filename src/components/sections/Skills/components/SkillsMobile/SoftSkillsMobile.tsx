@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { softSkills } from "../../constants";
+import { softSkills } from "@/config/skills.config";
 import { Skill } from "../../types";
 
 const SoftSkillsMobile: React.FC = () => {

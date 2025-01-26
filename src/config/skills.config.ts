@@ -1,4 +1,4 @@
-import { Skill } from "./types";
+import { Skill } from "@/components/sections/Skills/types";
 import {
   Brain,
   Users,
@@ -12,6 +12,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+// Used in SkillSlider only for desktop version
 export const hardSkills: Skill[] = [
   { path: "/assets/images/icons/technos/javascript.svg", name: "JavaScript" },
   { path: "/assets/images/icons/technos/typescript.svg", name: "TypeScript" },
@@ -28,6 +29,7 @@ export const hardSkills: Skill[] = [
   { path: "/assets/images/icons/technos/figma.svg", name: "Figma" },
 ];
 
+// Used in HardSkillsMobile only for mobile version
 export const hardSkillsMobile: Skill[] = [
   {
     path: "/assets/images/icons/technos/javascript.svg",
@@ -99,6 +101,7 @@ export const hardSkillsMobile: Skill[] = [
   },
 ];
 
+// Used in SkillSlider and SoftSkillsMobile for any version
 export const softSkills: Skill[] = [
   { icon: Brain, name: "Curiosité", color: "#6366f1" },
   { icon: Target, name: "Autonomie", color: "#ef4444" },

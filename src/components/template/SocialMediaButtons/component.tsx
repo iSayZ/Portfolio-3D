@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { socialLinks } from "./constants";
+import { socialButtons } from "./constants";
 
 const SocialMediaButtons: FC = () => {
   return (
     <div className="fixed bottom-6 right-0 flex flex-col shadow-sm z-40">
-      {socialLinks.map((social, index) => (
+      {socialButtons.map((social, index) => (
         <a
           key={index}
           href={social.link}

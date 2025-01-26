@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { BurgerMenuProps } from "./types";
-import { sections } from "./constants";
+import { sections } from "@/config/navigation.config";
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ isScrolled }) => {
   const [isOpen, setIsOpen] = useState(false);

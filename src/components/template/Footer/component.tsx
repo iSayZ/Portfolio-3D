@@ -3,8 +3,9 @@
 import React from "react";
 import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { sections } from "@/components/template/BurgerMenu/constants";
+import { sections } from "@/config/navigation.config";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
+import { cvPath, footerUtilsLinks, socialLinks } from "@/config/links.config";
 
 const Footer: React.FC = () => {
   const scrollTo = useScrollToSection();
@@ -40,7 +41,7 @@ const Footer: React.FC = () => {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/iSayZ"
+                  href={socialLinks.github.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors"
@@ -48,7 +49,7 @@ const Footer: React.FC = () => {
                   <Github className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/alexis-estrine/"
+                  href={socialLinks.linkedin.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors"
@@ -62,11 +63,11 @@ const Footer: React.FC = () => {
             <div className="flex flex-col items-center space-y-4">
               <h3 className="text-lg font-semibold text-foreground">Contact</h3>
               <a
-                href="mailto:estrine.alexis@gmail.com"
+                href={`mailto:${socialLinks.mail.url}`}
                 className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
-                estrine.alexis@gmail.com
+                {socialLinks.mail.url}
               </a>
             </div>
           </div>
@@ -78,17 +79,19 @@ const Footer: React.FC = () => {
               <h3 className="text-lg font-semibold text-foreground">
                 Liens utiles
               </h3>
-              <a
-                href="https://windows.estrine-alexis.fr/"
-                target="_blank"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Mon portfolio interactif Windows 11
-              </a>
+              {Object.entries(footerUtilsLinks).map(([key, link]) => (
+                <a
+                  key={key}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
               <Button
-                onClick={() =>
-                  window.open("/assets/documents/CV_Alexis_ESTRINE.pdf")
-                }
+                onClick={() => window.open(cvPath)}
                 variant="ghost"
                 className="text-muted-foreground hover:text-foreground transition-colors hover:bg-transparent text-md font-normal"
               >
