@@ -9,12 +9,14 @@ import { useOverlay } from "@/contexts/OverlayContext";
 import { useHeroScroll } from "./hooks/useHeroScroll";
 import { useLoading } from "@/contexts/LoadingContext";
 import AvatarControls from "./components/AvatarControls/component";
+import { ZoomControls } from "./components/ZoomControls";
 
 const Hero = () => {
   const { setIsLoading } = useLoading();
   const { isOpen } = useOverlay();
   const [hasExplored, setHasExplored] = useState<boolean>(false);
   const [avatarAnimation, setAvatarAnimation] = useState<string>('Typing');
+  const [groupScale, setGroupScale] = useState<number>(1);
 
   useHeroScroll({
     showOverlay: isOpen,
@@ -33,7 +35,7 @@ const Hero = () => {
         <div className="w-full h-full">
           {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-            <Scene3D onLoaded={() => setIsLoading(false)} avatarAnimation={avatarAnimation} />
+            <Scene3D onLoaded={() => setIsLoading(false)} avatarAnimation={avatarAnimation} groupScale={groupScale} />
           </Suspense>
         </div>
       </div>
@@ -42,6 +44,7 @@ const Hero = () => {
 
       <HelpFor3DInteraction />
       <AvatarControls onAnimationChange={setAvatarAnimation} />
+      <ZoomControls onScaleChange={setGroupScale} />
 
     </section>
   );

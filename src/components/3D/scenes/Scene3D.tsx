@@ -79,9 +79,10 @@ const AvatarWrapper: React.FC<AvatarWrapperProps> = ({
 interface Scene3DProps {
   onLoaded?: () => void;
   avatarAnimation: string;
+  groupScale: number;
 }
 
-const Scene3D: React.FC<Scene3DProps> = ({ onLoaded, avatarAnimation }) => {
+const Scene3D: React.FC<Scene3DProps> = ({ onLoaded, avatarAnimation, groupScale }) => {
   const { progress, loaded } = useProgress();
   const [targetPosition, setTargetPosition] = useState(new THREE.Vector3(0, 0.094, -0.78));
   const [targetRotation, setTargetRotation] = useState(new THREE.Euler(-Math.PI, 0.316, -Math.PI));
@@ -150,7 +151,7 @@ const Scene3D: React.FC<Scene3DProps> = ({ onLoaded, avatarAnimation }) => {
         />
         <GalaxyBackground />
 
-        <group position={[0, -0.5, 0]} scale={[1,1,1]}>
+        <group position={[0, -0.5, 0]} scale={[groupScale,groupScale,groupScale]}>
           <Suspense fallback={null}>
             <AvatarWrapper
               initialAnimation={avatarAnimation}
