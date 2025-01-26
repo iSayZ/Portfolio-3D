@@ -5,12 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCardProps } from "./types";
+import { useRouter } from "next/navigation";
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const router = useRouter();
+
   return (
     <Card
       className="overflow-hidden group relative cursor-pointer hover:bg-muted transition"
-      onClick={() => window.open(project.link, "_blank")}
+      onClick={() => router.push(`/projets/${project.id}`)}
     >
       {project.isActive && (
         <Badge
@@ -48,6 +51,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <h3 className="text-xl font-semibold tracking-tight">
             {project.title}
           </h3>
+
+          <p className="text-sm text-muted-foreground text-ellipsis overflow-hidden line-clamp-3">
+            {project.desc}
+          </p>
 
           <div className="flex flex-wrap gap-2 min-h-[64px]">
             {project.technologies.map((tech) => (
