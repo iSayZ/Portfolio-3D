@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {project.isActive && (
         <Badge
           variant="default"
-          className="absolute top-4 right-4 z-10 bg-green-500/80 hover:bg-green-500"
+          className="absolute top-4 right-4 z-10 bg-amber-500/80 hover:bg-amber-500"
         >
           En construction
         </Badge>
