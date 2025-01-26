@@ -39,8 +39,7 @@ const HelpFor3DInteraction: React.FC = () => {
               <div className="flex flex-col items-center">
                 <span className="text-sm mb-4">
                   ● Glissez pour explorer
-                  <br />
-                  ● Pincez pour zoomer
+                  <br />● Pincez pour zoomer
                 </span>
                 <div className="flex items-center justify-center">
                   <Image
@@ -55,9 +54,7 @@ const HelpFor3DInteraction: React.FC = () => {
               </div>
             </AlertDescription>
             <div className="flex justify-center mt-4">
-              <Button
-                onClick={() => setShowMobileHint(false)}
-              >
+              <Button onClick={() => setShowMobileHint(false)}>
                 J'ai compris !
               </Button>
             </div>

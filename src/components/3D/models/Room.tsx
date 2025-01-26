@@ -389,4 +389,4 @@ export const Room: React.FC<GroupProps> = (props) => {
   );
 };
 
-useGLTF.preload("/assets/3D/models/room.glb");
+// useGLTF.preload("/assets/3D/models/room.glb");

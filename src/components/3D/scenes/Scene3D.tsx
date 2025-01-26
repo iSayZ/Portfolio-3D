@@ -11,8 +11,8 @@ import { Avatar } from "../models/Avatar";
 import { GalaxyBackground } from "../backgrounds/GalaxyBackground";
 import { Room } from "../models/Room";
 
-useGLTF.preload("/assets/3D/models/room.glb");
-useGLTF.preload("/assets/3D/models/avatar.glb");
+// useGLTF.preload("/assets/3D/models/room.glb");
+// useGLTF.preload("/assets/3D/models/avatar.glb");
 
 interface Scene3DProps {
   onLoaded?: () => void;

@@ -8,7 +8,7 @@ import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const Footer: React.FC = () => {
   const scrollTo = useScrollToSection();
-  
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,18 +16,20 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* First column - Navigation */}
-         <nav className="flex flex-col items-center space-y-4">
-           <h3 className="text-lg font-semibold text-foreground">Navigation</h3>
-           {sections.map((section) => (
-             <button
-               key={section.id}
-               onClick={() => scrollTo(section.id)}
-               className="text-muted-foreground hover:text-foreground transition-colors"
-             >
-               {section.name}
-             </button>
-           ))}
-         </nav>
+          <nav className="flex flex-col items-center space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">
+              Navigation
+            </h3>
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollTo(section.id)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {section.name}
+              </button>
+            ))}
+          </nav>
 
           {/* Second column */}
           <div className="flex flex-col items-center gap-8">
@@ -94,7 +96,7 @@ const Footer: React.FC = () => {
               </Button>
             </nav>
 
-            <Button onClick={() => scrollTo('#hero')}>
+            <Button onClick={() => scrollTo("#hero")}>
               Retour en haut
               <ArrowUp />
             </Button>

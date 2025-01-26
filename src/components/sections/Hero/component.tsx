@@ -1,16 +1,17 @@
 "use client";
 
 import Scene3D from "@/components/3D/scenes/Scene3D";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { LoadingScreen } from "../../LoadingScreen";
 import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
 import { Overlay } from "./components/Overlay";
 import { useOverlay } from "@/contexts/OverlayContext";
 import { useHeroScroll } from "./hooks/useHeroScroll";
+import { useLoading } from "@/contexts/LoadingContext";
 
 const Hero = () => {
+  const { setIsLoading } = useLoading();
   const { isOpen } = useOverlay();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasExplored, setHasExplored] = useState<boolean>(false);
 
   useHeroScroll({
@@ -28,14 +29,12 @@ const Hero = () => {
       {/* Content */}
       <div className="absolute inset-0">
         <div className="w-full h-full">
+          {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-            {/* Disabled for development */}
             <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>
         </div>
       </div>
-      {/* Disabled for development */}
-      {isLoading && <LoadingScreen />}
 
       <Overlay hasExplored={hasExplored} setHasExplored={setHasExplored} />
 

@@ -189,4 +189,4 @@ export function Avatar({ animation, ...props }: AvatarProps) {
   );
 }
 
-useGLTF.preload("/assets/3D/models/avatar.glb");
+// useGLTF.preload("/assets/3D/models/avatar.glb");
