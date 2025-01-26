@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 interface FullScreenCarouselProps {
   images: string[];
@@ -22,6 +23,20 @@ const FullScreenCarousel = ({
   isOpen,
   onClose,
 }: FullScreenCarouselProps) => {
+  
+  // To lock the scroll
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (

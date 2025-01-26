@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { X, Play, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -14,6 +14,19 @@ const VideoPlayer = ({ videoId, isOpen, onClose }: VideoModalProps) => {
  const [isLoading, setIsLoading] = useState<boolean>(true);
  const [hasError, setHasError] = useState<boolean>(false);
  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // To lock the scroll
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
  if (!isOpen) return null;
 
@@ -41,7 +54,7 @@ const VideoPlayer = ({ videoId, isOpen, onClose }: VideoModalProps) => {
      <div className="relative w-full max-w-5xl aspect-video rounded-lg overflow-hidden bg-black/80">
        {isLoading && (
          <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-           <Loader2 className="w-8 h-8 animate-spin text-primary" />
+           <Loader2 className="size-16 animate-spin text-slate-50" />
          </div>
        )}
        
