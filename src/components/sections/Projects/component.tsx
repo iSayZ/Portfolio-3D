@@ -23,24 +23,24 @@ export const Projects = () => {
     <section id="projects">
       <div className="container px-4 mx-auto flex flex-col gap-12">
         <h2 className="text-3xl font-bold text-center">Mes Projets</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-6">
           {projects.slice(0, visibleProjects).map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-        <div className="w-full flex justify-center">
-          {projects.length > visibleProjects ? (
-            <Button
-              onClick={showMoreProjects}
-              variant="ghost"
-              className="text-blue-600 underline hover:text-blue-400 hover:bg-none"
-            >
-              Afficher plus de projets
-            </Button>
-          ) : (
-            ""
-          )}
-        </div>
+      </div>
+      <div className="w-full flex justify-center">
+        {projects.length > visibleProjects ? (
+          <Button
+            onClick={showMoreProjects}
+            variant="outline"
+            className="p-6 text-lg bg-card mt-12"
+          >
+            Afficher plus de projets
+          </Button>
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );
