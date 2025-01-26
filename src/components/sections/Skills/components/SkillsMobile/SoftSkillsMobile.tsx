@@ -18,8 +18,8 @@ const SoftSkillsMobile: React.FC = () => {
             style={{
               backgroundColor:
                 hoveredSkill === skill.name
-                  ? `${skill.color}50`
-                  : `${skill.color}20`,
+                  ? `${skill.color}30`
+                  : `${skill.color}50`,
               color: skill.color,
             }}
             onMouseEnter={() => setHoveredSkill(skill.name)}

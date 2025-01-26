@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                           transform transition-all duration-300 hover:scale-110 hover:shadow-lg
                           hover:-translate-y-1 cursor-pointer"
                 style={{
-                  backgroundColor: `${tech.color}20`,
+                  backgroundColor: `${tech.color}50`,
                   color: tech.textColor || tech.color,
                 }}
               >
