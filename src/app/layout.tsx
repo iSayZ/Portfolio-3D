@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Alexis Estrine | Portfolio Développeur Web Full-Stack",
     description:
       "Portfolio de développeur web full-stack avec expertise en JavaScript, TypeScript, React, Node.js et bien plus. Découvrez mes compétences à travers mes projets et expériences.",
-    // url: 'https://portfolio.estrine-alexis.fr/',
+    url: 'https://portfolio.estrine-alexis.fr/',
     siteName: "Alexis Estrine | Portfolio",
     images: [
       {
