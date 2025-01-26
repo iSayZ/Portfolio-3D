@@ -7,13 +7,23 @@ import { MenuIcon } from "lucide-react";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { BurgerMenuProps } from "./types";
 import { sections } from "@/config/navigation.config";
+import { usePathname, useRouter } from "next/navigation";
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ isScrolled }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  
   const scrollTo = useScrollToSection();
 
   const handleClick = (id: string) => {
-    scrollTo(id);
+    if (isHomePage) {
+      scrollTo(id);
+    } else {
+      router.push(`/#${id}`);
+    }
     setIsOpen(false);
   };
 
