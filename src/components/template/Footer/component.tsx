@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
               </Button>
             </nav>
 
-            <Button onClick={() => scrollTo("#hero")}>
+            <Button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
               Retour en haut
               <ArrowUp />
             </Button>
