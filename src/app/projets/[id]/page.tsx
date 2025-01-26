@@ -5,7 +5,7 @@ import { ArrowLeft, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { projects } from "@/components/sections/Projects/constants";
+import { projects } from "@/config/projects.config";
 import { useRouter } from "next/navigation";
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
