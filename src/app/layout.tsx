@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     siteName: "Alexis Estrine | Portfolio",
     images: [
       {
-        url: '/assets/images/metadata/app-overview.png',
+        url: 'https://portfolio.estrine-alexis.fr/assets/images/metadata/app-overview.png',
         width: 1200,
-        height: 630,
+        height: 638,
         alt: "Aperçu du portfolio Alexis Estrine",
       },
     ],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Alexis Estrine | Portfolio Développeur Web Full-Stack",
     description:
       "Portfolio de développeur web full-stack avec expertise en JavaScript, TypeScript, React, Node.js et bien plus. Découvrez mes compétences à travers mes projets et expériences.",
-    images: ['/assets/images/metadata/app-overview.png'],
+    images: ['https://portfolio.estrine-alexis.fr/assets/images/metadata/app-overview.png'],
   },
 };
 
