@@ -55,7 +55,7 @@ const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
       <Button
         onClick={() => handleExplore(true)}
         variant="secondary"
-        className={`absolute top-6 right-6 p-3 max-md:top-4 max-md:right-4 ${
+        className={`absolute top-6 right-6 p-3 max-md:top-4 max-md:right-4 h-10 ${
           isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >

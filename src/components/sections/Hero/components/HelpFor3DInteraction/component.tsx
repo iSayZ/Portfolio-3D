@@ -20,7 +20,8 @@ const HelpFor3DInteraction: React.FC = () => {
 
   if (isLargeScreen) {
     return (
-      <div className="absolute bottom-6 left-6 p-4 bg-secondary/70 backdrop-blur-sm rounded-lg text-secondary-foreground text-sm">
+      <div className="absolute top-6 right-6 mt-12 p-4 bg-secondary/80 backdrop-blur-sm rounded-lg text-secondary-foreground text-sm">
+        <h2 className="mb-2 font-bold">Contrôles de la Scène 3D</h2>
         <p>🖱️ Clic gauche : Rotation</p>
         <p>⚙️ Molette : Zoom</p>
       </div>
@@ -33,7 +34,7 @@ const HelpFor3DInteraction: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
           <Alert className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow-md border-none text-center">
             <AlertTitle className="text-lg font-bold mb-2">
-              Interaction mobile
+              Contrôles de la Scène 3D
             </AlertTitle>
             <AlertDescription>
               <div className="flex flex-col items-center">

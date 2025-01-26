@@ -8,11 +8,13 @@ import { Overlay } from "./components/Overlay";
 import { useOverlay } from "@/contexts/OverlayContext";
 import { useHeroScroll } from "./hooks/useHeroScroll";
 import { useLoading } from "@/contexts/LoadingContext";
+import AvatarControls from "./components/AvatarControls/component";
 
 const Hero = () => {
   const { setIsLoading } = useLoading();
   const { isOpen } = useOverlay();
   const [hasExplored, setHasExplored] = useState<boolean>(false);
+  const [avatarAnimation, setAvatarAnimation] = useState<string>('Typing');
 
   useHeroScroll({
     showOverlay: isOpen,
@@ -31,7 +33,7 @@ const Hero = () => {
         <div className="w-full h-full">
           {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-            <Scene3D onLoaded={() => setIsLoading(false)} />
+            <Scene3D onLoaded={() => setIsLoading(false)} avatarAnimation={avatarAnimation} />
           </Suspense>
         </div>
       </div>
@@ -39,6 +41,8 @@ const Hero = () => {
       <Overlay hasExplored={hasExplored} setHasExplored={setHasExplored} />
 
       <HelpFor3DInteraction />
+      <AvatarControls onAnimationChange={setAvatarAnimation} />
+
     </section>
   );
 };
