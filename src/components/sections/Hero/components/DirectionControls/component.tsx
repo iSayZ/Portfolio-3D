@@ -12,7 +12,7 @@ const DirectionControls: React.FC<DirectionControlsProps> = ({
 }) => {
   const { isOpen } = useOverlay();
 
-  const ROTATION_STEP = 0.1;
+  const ROTATION_STEP = 0.3;
 
   const handleRotation = (x: number, y: number) => {
     onRotationChange(x, y);

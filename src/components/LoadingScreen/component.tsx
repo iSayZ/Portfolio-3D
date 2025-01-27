@@ -2,22 +2,39 @@ import { useEffect } from "react";
 
 const LoadingScreen: React.FC = () => {
   useEffect(() => {
-    // Disables scrolling when LoadingScreen is mounted
     document.body.style.overflow = "hidden";
-
-    // Restore scroll when LoadingScreen is removed
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
 
   return (
-    <div className="absolute inset-0 px-4 flex flex-col items-center justify-center bg-neutral-900 z-50 text-center min-h-screen max-h-screen overflow-hidden">
-      <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin mb-4" />
-      <p className="text-white/80 text-lg">Chargement de l'univers...</p>
-      <p className="text-white/60 text-sm mt-2">
-        Première visite ? Le chargement peut prendre quelques secondes
-      </p>
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-background z-50">
+      {/* Container principal */}
+      <div className="flex flex-col items-center max-w-sm mx-auto px-4">
+        {/* Logo "AE" */}
+        <h1 className="lot text-9xl text-primary mb-12 animate-pulse">
+          AE
+        </h1>
+
+        {/* Section de chargement */}
+        <div className="w-full space-y-6">
+          {/* Barre de progression */}
+          <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
+            <div className="h-full bg-primary animate-loading-bar" />
+          </div>
+
+          {/* Textes */}
+          <div className="text-center space-y-3">
+            <p className="text-foreground text-xl font-medium">
+              Chargement de l&apos;univers
+            </p>
+            <p className="text-muted-foreground text-sm">
+              Première visite ? Le chargement peut prendre quelques secondes...
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

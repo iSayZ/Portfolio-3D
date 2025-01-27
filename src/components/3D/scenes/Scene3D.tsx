@@ -95,6 +95,7 @@ const Scene3D: React.FC<Scene3DProps> = ({
   groupRotation,
 }) => {
   const { progress, loaded } = useProgress();
+
   const [targetPosition, setTargetPosition] = useState(
     new THREE.Vector3(0, 0.094, -0.78),
   );
