@@ -1,39 +1,20 @@
 "use client";
 
-import Scene3D from "@/components/3D/scenes/Scene3D";
-import { Suspense, useState } from "react";
-import { LoadingScreen } from "../../LoadingScreen";
-import { HelpFor3DInteraction } from "./components/HelpFor3DInteraction";
-import { Overlay } from "./components/Overlay";
-import { useOverlay } from "@/contexts/OverlayContext";
-import { useHeroScroll } from "./hooks/useHeroScroll";
+import Scene3D from "./components/Scene3D/Scene3D";
 import { useLoading } from "@/contexts/LoadingContext";
-import AvatarControls from "./components/AvatarControls/component";
-import { ZoomControls } from "./components/ZoomControls";
-import { DirectionControls } from "./components/DirectionControls";
-import { GroupRotation } from "./components/DirectionControls/types";
-import BackgroundControls from "./components/BackgroundControls/component";
-import { BackgroundType } from "./components/BackgroundControls";
-import { backgrounds } from "./components/BackgroundControls/constants";
+import { useOverlay } from "@/contexts/OverlayContext";
+import { Suspense } from "react";
+import { LoadingScreen } from "../../LoadingScreen";
+import { Overlay } from "./components/Overlay";
+import { backgrounds } from "./components/Scene3DControls/components/BackgroundControls/constants";
+import { useHeroScroll } from "./hooks/useHeroScroll";
+import { useScene3DControls } from "@/contexts/Scene3DControlsContext";
+import { Scene3DControls } from "./components/Scene3DControls";
 
 const Hero = () => {
   const { setIsLoading } = useLoading();
   const { isOpen } = useOverlay();
-  const [hasExplored, setHasExplored] = useState<boolean>(false);
-  const [avatarAnimation, setAvatarAnimation] = useState<string>("Typing");
-  const [groupScale, setGroupScale] = useState<number>(1);
-  const [groupRotation, setGroupRotation] = useState<GroupRotation>({
-    x: 0,
-    y: 0,
-  });
-  const [background, setBackground] = useState<BackgroundType>("galaxy");
-
-  const handleRotationChange = (deltaX: number, deltaY: number) => {
-    setGroupRotation((prev) => ({
-      x: prev.x + deltaX,
-      y: prev.y + deltaY,
-    }));
-  };
+  const { background, hasExplored, setHasExplored } = useScene3DControls();
 
   useHeroScroll({
     showOverlay: isOpen,
@@ -55,26 +36,14 @@ const Hero = () => {
         <div className="w-full h-full">
           {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-            <Scene3D
-              onLoaded={() => setIsLoading(false)}
-              avatarAnimation={avatarAnimation}
-              groupScale={groupScale}
-              groupRotation={groupRotation}
-            />
+          <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>
         </div>
       </div>
 
       <Overlay hasExplored={hasExplored} setHasExplored={setHasExplored} />
 
-      <HelpFor3DInteraction />
-      <BackgroundControls
-        currentBackground={background}
-        onBackgroundChange={setBackground}
-      />
-      <ZoomControls onScaleChange={setGroupScale} />
-      <AvatarControls onAnimationChange={setAvatarAnimation} />
-      <DirectionControls onRotationChange={handleRotationChange} />
+      <Scene3DControls />
     </section>
   );
 };

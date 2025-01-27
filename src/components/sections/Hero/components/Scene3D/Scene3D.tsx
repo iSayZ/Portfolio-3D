@@ -7,10 +7,11 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import React, { Suspense, useEffect, useState, useRef } from "react";
-import { Avatar } from "../models/Avatar";
-import { GalaxyBackground } from "../backgrounds/GalaxyBackground";
-import { Room } from "../models/Room";
+import { Avatar } from "@/components/3D/models/Avatar";
+import { GalaxyBackground } from "@/components/3D/backgrounds/GalaxyBackground";
+import { Room } from "@/components/3D/models/Room";
 import * as THREE from "three";
+import { useScene3DControls } from "@/contexts/Scene3DControlsContext";
 
 interface AvatarWrapperProps {
   initialAnimation: string;
@@ -83,18 +84,11 @@ const AvatarWrapper: React.FC<AvatarWrapperProps> = ({
 
 interface Scene3DProps {
   onLoaded?: () => void;
-  avatarAnimation: string;
-  groupScale: number;
-  groupRotation: any;
 }
 
-const Scene3D: React.FC<Scene3DProps> = ({
-  onLoaded,
-  avatarAnimation,
-  groupScale,
-  groupRotation,
-}) => {
+const Scene3D: React.FC<Scene3DProps> = ({ onLoaded }) => {
   const { progress, loaded } = useProgress();
+  const { avatarAnimation, groupScale, groupRotation } = useScene3DControls();
 
   const [targetPosition, setTargetPosition] = useState(
     new THREE.Vector3(0, 0.094, -0.78),
