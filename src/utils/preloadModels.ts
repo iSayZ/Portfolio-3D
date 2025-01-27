@@ -7,5 +7,6 @@ export const MODELS = {
   AVATAR: "/assets/3D/models/avatar.glb",
 } as const;
 
-useGLTF.preload(MODELS.ROOM);
-useGLTF.preload(MODELS.AVATAR);
+// Preload with Draco Loader
+useGLTF.preload(MODELS.ROOM, '/draco/gltf/');
+useGLTF.preload(MODELS.AVATAR, '/draco/gltf/');

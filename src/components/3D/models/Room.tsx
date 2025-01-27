@@ -20,11 +20,14 @@ interface RoomGLTF extends THREE.Object3D {
 
 export const Room: React.FC<GroupProps> = (props) => {
   const group = useRef<THREE.Group>(null);
+
   const { nodes, materials, animations } = useGLTF(
     "/assets/3D/models/room.glb",
-    "/draco/",
+    '/draco/gltf/'
   ) as unknown as RoomGLTF;
+
   const { actions } = useAnimations(animations, group);
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <motion.group
