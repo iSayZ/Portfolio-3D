@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button";
+import { contentsConfig } from "@/config/contents.config";
+import { useOverlay } from "@/contexts/OverlayContext";
 import { ChevronDown, ChevronUp, Undo2 } from "lucide-react";
 import { OverlayProps } from "./types";
-import { Button } from "@/components/ui/button";
-import { useOverlay } from "@/contexts/OverlayContext";
-import { contentsConfig } from "@/config/contents.config";
 
 const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
   const { isOpen, setIsOpen } = useOverlay();
@@ -54,8 +54,7 @@ const Overlay: React.FC<OverlayProps> = ({ hasExplored, setHasExplored }) => {
       {/* Button to redisplay overlay - visible only when overlay is hidden */}
       <Button
         onClick={() => handleExplore(true)}
-        variant="secondary"
-        className={`absolute top-6 right-6 p-3 max-md:top-4 max-md:right-4 h-10 ${
+        className={`absolute top-6 right-6 p-3 max-md:top-4 max-md:right-4 h-10 text-black bg-secondary/70 backdrop-blur-sm hover:bg-secondary/90 ${
           isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >

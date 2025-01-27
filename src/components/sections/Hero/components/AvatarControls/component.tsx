@@ -1,15 +1,15 @@
-import React from 'react';
 import { Button } from '@/components/ui/button';
-import { animations } from './constants';
-import { AvatarControlsProps } from './types';
-import { useOverlay } from '@/contexts/OverlayContext';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useOverlay } from '@/contexts/OverlayContext';
 import { ChevronUp } from 'lucide-react';
+import React from 'react';
+import { animations } from './constants';
+import { AvatarControlsProps } from './types';
 
 const AvatarControls: React.FC<AvatarControlsProps> = ({ onAnimationChange }) => {
   const { isOpen } = useOverlay();
@@ -27,7 +27,7 @@ const AvatarControls: React.FC<AvatarControlsProps> = ({ onAnimationChange }) =>
       <div className={`transition-opacity ${isOpen ? "opacity-0" : "opacity-100"}`}>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="w-48 gap-2 text-black text-lg bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80">
+            <Button className="w-48 gap-2 text-black text-lg bg-secondary/70 backdrop-blur-sm hover:bg-secondary/90">
               <span>{currentAnim?.icon}</span>
               <span>{currentAnim?.label}</span>
               <ChevronUp className="ml-2 h-4 w-4" />

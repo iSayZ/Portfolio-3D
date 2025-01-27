@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useOverlay } from '@/contexts/OverlayContext';
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from 'lucide-react';
+import React, { useEffect } from 'react';
 
 interface DirectionControlsProps {
   onRotationChange: (x: number, y: number) => void;
@@ -42,25 +42,25 @@ const { isOpen } = useOverlay();
     <div className={`fixed right-4 bottom-24 size-32 md:size-40 ${isOpen ? "opacity-0" : "opacity-100"}`}>
       <div className="relative w-full h-full ">
         <Button
-          className="absolute top-0 left-1/2 -translate-x-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80 p-2 text-black"
+          className="absolute top-0 left-1/2 -translate-x-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/90 p-2 text-black"
           onClick={() => handleRotation(-ROTATION_STEP, 0)}
         >
           <ArrowUp className="size-6 md:size-8" />
         </Button>
         <Button
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80 p-2 text-black"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/90 p-2 text-black"
           onClick={() => handleRotation(ROTATION_STEP, 0)}
         >
           <ArrowDown className="size-6 md:size-8" />
         </Button>
         <Button
-          className="absolute left-0 top-1/2 -translate-y-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80 p-2 text-black"
+          className="absolute left-0 top-1/2 -translate-y-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/90 p-2 text-black"
           onClick={() => handleRotation(0, -ROTATION_STEP)}
         >
           <ArrowLeft className="size-6 md:size-8" />
         </Button>
         <Button
-          className="absolute right-0 top-1/2 -translate-y-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/80 p-2 text-black"
+          className="absolute right-0 top-1/2 -translate-y-1/2 size-min bg-secondary/70 backdrop-blur-sm hover:bg-secondary/90 p-2 text-black"
           onClick={() => handleRotation(0, ROTATION_STEP)}
         >
           <ArrowRight className="size-6 md:size-8" />
