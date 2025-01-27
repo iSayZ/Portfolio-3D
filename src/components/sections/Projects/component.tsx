@@ -3,20 +3,23 @@
 import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
 import { ProjectCard } from "./components/ProjectCard";
 import { projects } from "@/config/projects.config";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useProjectsStore } from "./store/useProjectStore";
 
 export const Projects = () => {
-  const [visibleProjects, setVisibleProjects] = useState<number>(3);
-
+  const { visibleProjects, setVisibleProjects } = useProjectsStore();
   const isLargeScreen = useIsScreenLarge(768);
 
   useEffect(() => {
-    isLargeScreen ? setVisibleProjects(6) : setVisibleProjects(3);
-  }, [isLargeScreen]);
+    const minVisible = isLargeScreen ? 6 : 3;
+    if (visibleProjects < minVisible) {
+      setVisibleProjects(minVisible);
+    }
+  }, [isLargeScreen, visibleProjects, setVisibleProjects]);
 
   const showMoreProjects = () => {
-    setVisibleProjects((prev) => prev + 3);
+    setVisibleProjects(visibleProjects + 3);
   };
 
   return (
@@ -30,7 +33,7 @@ export const Projects = () => {
         </div>
       </div>
       <div className="w-full flex justify-center">
-        {projects.length > visibleProjects ? (
+        {projects.length > visibleProjects && (
           <Button
             onClick={showMoreProjects}
             variant="outline"
@@ -38,8 +41,6 @@ export const Projects = () => {
           >
             Afficher plus de projets
           </Button>
-        ) : (
-          ""
         )}
       </div>
     </section>

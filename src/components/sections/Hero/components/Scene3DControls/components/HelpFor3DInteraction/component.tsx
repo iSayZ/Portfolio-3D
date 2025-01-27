@@ -24,6 +24,9 @@ const HelpFor3DInteraction: React.FC = () => {
         <span className="text-sm mb-4">
           ● Clic gauche et glisse pour pivoter
           <br />● Pince ou utilise la molette pour zoomer
+          <br />
+          <br />Tu peux également utiliser les boutons de contrôle,
+          <br /> ainsi que les flèches du clavier !
         </span>
       </div>
     </AlertDescription>
@@ -44,6 +47,10 @@ const HelpFor3DInteraction: React.FC = () => {
             priority
           />
         </div>
+        <br />
+          <p>
+         Tu peux également utiliser les boutons de contrôle !
+          </p>
       </div>
     </AlertDescription>
   );
