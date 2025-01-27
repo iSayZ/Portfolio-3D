@@ -1,20 +1,23 @@
 "use client";
 
-import Scene3D from "./components/Scene3D/Scene3D";
 import { useLoading } from "@/contexts/LoadingContext";
 import { useOverlay } from "@/contexts/OverlayContext";
+import { useScene3DControls } from "@/contexts/Scene3DControlsContext";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { Suspense } from "react";
-import { LoadingScreen } from "../../LoadingScreen";
+import { LoadingScreen } from "../../template/LoadingScreen";
 import { Overlay } from "./components/Overlay";
+import Scene3D from "./components/Scene3D/Scene3D";
+import { Scene3DControls } from "./components/Scene3DControls";
 import { backgrounds } from "./components/Scene3DControls/components/BackgroundControls/constants";
 import { useHeroScroll } from "./hooks/useHeroScroll";
-import { useScene3DControls } from "@/contexts/Scene3DControlsContext";
-import { Scene3DControls } from "./components/Scene3DControls";
 
 const Hero = () => {
   const { setIsLoading } = useLoading();
   const { isOpen } = useOverlay();
   const { background, hasExplored, setHasExplored } = useScene3DControls();
+
+  useScrollLock(!isOpen);
 
   useHeroScroll({
     showOverlay: isOpen,

@@ -1,12 +1,10 @@
-import { useEffect } from "react";
+import { useLoading } from "@/contexts/LoadingContext";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 const LoadingScreen: React.FC = () => {
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+    const { isLoading } = useLoading();
+  
+  useScrollLock(isLoading);
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-background z-50">
