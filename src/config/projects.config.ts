@@ -112,7 +112,7 @@ export const projects: Project[] = [
       techStack.jwt,
     ],
     githubRepoLink: "https://github.com/iSayZ/Dashboard-Nest.js-Next.js",
-    isInConstruction: true,
+    isInConstruction: false,
     date: "Septembre 2024",
   },
   {
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     id: "spot-lille-art",
     title: "Spot Lille Art",
     cover: "/assets/images/projects/spot-lille-art/artworks.png",
-    desc: "Spot Lille Art est une plateforme participative permettant de référencer, partager et découvrir des œuvres de street art dans la Métropole Européenne de Lille. Le projet inclut la mise en place d'un CRUD et de routes d'API sécurisées, une authentification, une carte interactive, la prise et l'upload de photos, ainsi qu'un espace administrateur.",
+    desc: "Spot Lille Art est une plateforme participative permettant de référencer, partager et découvrir des œuvres de street art dans la Métropole Européenne de Lille. Ce projet inclut un système de gestion des œuvres via une API connectée à une base de données MySQL. Les utilisateurs peuvent prendre des photos des oeuvres et renseigner leurs informations. Le site propose également un espace administrateur pour gérer les œuvres soumises, les utilisateurs, les signalements d'œuvres recouvertes ainsi que les statistiques globales de l'application.",
     screenshots: [
       "/assets/images/projects/spot-lille-art/artworks.png",
       "/assets/images/projects/spot-lille-art/artwork.png",
@@ -209,7 +209,7 @@ export const projects: Project[] = [
     id: "portfolio-v1",
     title: "Portfolio v1",
     cover: "/assets/images/projects/portfolio-v1/accueil.png",
-    desc: "Mon portfolio professionnel (site sur lequel vous naviguez).",
+    desc: "Un portfolio minimaliste développé en React et stylisé avec Tailwind CSS, présentant mes projets et compétences en tant que développeur web. Cette interface épurée permet une navigation fluide à travers mes différentes réalisations, tout en offrant une expérience utilisateur optimisée. Un projet qui m'a permis de mettre en pratique mes connaissances en développement frontend et de créer une vitrine professionnelle pour mon travail.",
     screenshots: ["/assets/images/projects/portfolio-v1/accueil.png"],
     technologies: [techStack.react, techStack.javascript, techStack.tailwind],
     demoLink: "https://portfolio-v1.estrine-alexis.fr",
@@ -221,7 +221,7 @@ export const projects: Project[] = [
     id: "trombinoscope",
     title: "Trombinoscope",
     cover: "/assets/images/projects/trombinoscope/card.png",
-    desc: "Trombinoscope réalisé en équipe, mettant en valeur la promotion de la Wild Code School 2024.",
+    desc: "Trombinoscope réalisé en équipe, mettant en valeur la promotion de la Wild Code School 2024. Chaque étudiant est représenté par une carte personnalisée affichant sa photo, son âge, son nom, ses hobbies ainsi que ses liens vers LinkedIn et GitHub. Cette interface interactive permet de découvrir rapidement le profil de chaque membre de la promotion.",
     screenshots: [
       "/assets/images/projects/trombinoscope/index.png",
       "/assets/images/projects/trombinoscope/section.png",
