@@ -22,7 +22,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isScrolled }) => {
     if (isHomePage) {
       scrollTo(id);
     } else {
-      router.push(`/#${id}`);
+      router.push(`/portfolio#${id}`);
     }
     setIsOpen(false);
   };
