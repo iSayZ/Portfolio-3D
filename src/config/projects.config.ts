@@ -67,6 +67,31 @@ export const techStack: Record<string, Technology> = {
 
 export const projects: Project[] = [
   {
+    id: "portfolio-windows-11",
+    title: "Portfolio interactif Windows 11",
+    cover: "/assets/images/projects/portfolio-windows-11/desktop.png",
+    desc: "Windows 11 Portfolio est une réplique web interactive de l'interface Windows 11, conçue pour servir de portfolio créatif. Ce projet repousse les limites de l'expérience utilisateur classique en transformant un environnement familier - celui de Windows 11 - en une vitrine innovante de compétences en développement web. Le portfolio permet d'ouvrir différentes applications et de manipuler les fenêtres exactement comme sur Windows 11, avec la possibilité de les redimensionner, les déplacer et les organiser à votre guise. N'hésitez pas à explorer cet environnement familier et à interagir avec les différentes applications pour découvrir mes réalisations !",
+    screenshots: [
+      "/assets/images/projects/portfolio-windows-11/desktop.png",
+      "/assets/images/projects/portfolio-windows-11/terminal.png",
+      "/assets/images/projects/portfolio-windows-11/dark-mode.png",
+      "/assets/images/projects/portfolio-windows-11/launch-menu.png",
+      "/assets/images/projects/portfolio-windows-11/explorer.png",
+      "/assets/images/projects/portfolio-windows-11/chrome.png",
+      "/assets/images/projects/portfolio-windows-11/audio-controls.png",
+    ],
+    technologies: [
+      techStack.next,
+      techStack.typescript,
+      techStack.tailwind,
+      techStack.mongodb,
+    ],
+    demoLink: "https://windows.estrine-alexis.fr",
+    githubRepoLink: "https://github.com/iSayZ/Windows-Portfolio",
+    isInConstruction: false,
+    date: "Janvier 2025"
+  },  
+  {
     id: "dashboard-haute-securite",
     title: "Dashboard de haute sécurité",
     cover: "/assets/images/projects/dashboard-haute-securite/index.png",
