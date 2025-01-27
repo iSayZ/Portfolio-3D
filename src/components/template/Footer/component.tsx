@@ -99,7 +99,9 @@ const Footer: React.FC = () => {
               </Button>
             </nav>
 
-            <Button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <Button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               Retour en haut
               <ArrowUp />
             </Button>

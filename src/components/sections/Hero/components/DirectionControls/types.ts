@@ -1,4 +1,4 @@
 export interface GroupRotation {
-    x: number;
-    y: number;
-   }
+  x: number;
+  y: number;
+}

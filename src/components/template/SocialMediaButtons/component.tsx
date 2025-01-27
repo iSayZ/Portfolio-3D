@@ -5,11 +5,12 @@ import { socialButtons } from "./constants";
 import { useOverlay } from "@/contexts/OverlayContext";
 
 const SocialMediaButtons: FC = () => {
-
   const { isOpen } = useOverlay();
 
   return (
-    <div className={`fixed bottom-6 right-0 flex flex-col shadow-sm z-40 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+    <div
+      className={`fixed bottom-6 right-0 flex flex-col shadow-sm z-40 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+    >
       {socialButtons.map((social, index) => (
         <a
           key={index}

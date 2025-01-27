@@ -111,8 +111,7 @@ export const projects: Project[] = [
       techStack.websocket,
       techStack.jwt,
     ],
-    videoDemoLink:
-      "1jPhKJag0I3d0YolTqbz-PhtQclcNMgrf",
+    videoDemoLink: "1jPhKJag0I3d0YolTqbz-PhtQclcNMgrf",
     githubRepoLink: "https://github.com/iSayZ/Crumble",
     isInConstruction: false,
     date: "Septembre 2024",
@@ -176,8 +175,7 @@ export const projects: Project[] = [
     ],
     technologies: [techStack.react, techStack.javascript, techStack.css],
     demoLink: "https://feet-n-fun.vercel.app/",
-    videoDemoLink:
-      "1Gv6c8CJhwKkj04s0U8DzqYdQmTMVIQSq",
+    videoDemoLink: "1Gv6c8CJhwKkj04s0U8DzqYdQmTMVIQSq",
     githubRepoLink: "https://github.com/iSayZ/Feet-Fun",
     isInConstruction: false,
     date: "Avril 2024",
@@ -206,8 +204,7 @@ export const projects: Project[] = [
     ],
     technologies: [techStack.javascript, techStack.html, techStack.css],
     demoLink: "https://trombi-wcs.vercel.app/",
-    videoDemoLink:
-      "1FMgqABgX4yFv9QE3SsADEpWq9_qu-BIy",
+    videoDemoLink: "1FMgqABgX4yFv9QE3SsADEpWq9_qu-BIy",
     githubRepoLink: "https://github.com/iSayZ/Trombinoscope-WCS",
     isInConstruction: false,
     date: "Mars 2024",

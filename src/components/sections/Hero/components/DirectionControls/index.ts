@@ -1,1 +1,1 @@
-export { default as DirectionControls } from './component';
+export { default as DirectionControls } from "./component";

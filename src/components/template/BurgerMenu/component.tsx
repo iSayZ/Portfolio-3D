@@ -15,7 +15,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ isScrolled }) => {
   const router = useRouter();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  
+
   const scrollTo = useScrollToSection();
 
   const handleClick = (id: string) => {

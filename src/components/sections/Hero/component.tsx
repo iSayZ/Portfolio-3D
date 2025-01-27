@@ -20,15 +20,18 @@ const Hero = () => {
   const { setIsLoading } = useLoading();
   const { isOpen } = useOverlay();
   const [hasExplored, setHasExplored] = useState<boolean>(false);
-  const [avatarAnimation, setAvatarAnimation] = useState<string>('Typing');
+  const [avatarAnimation, setAvatarAnimation] = useState<string>("Typing");
   const [groupScale, setGroupScale] = useState<number>(1);
-  const [groupRotation, setGroupRotation] = useState<GroupRotation>({ x: 0, y: 0 });
-  const [background, setBackground] = useState<BackgroundType>('galaxy');
+  const [groupRotation, setGroupRotation] = useState<GroupRotation>({
+    x: 0,
+    y: 0,
+  });
+  const [background, setBackground] = useState<BackgroundType>("galaxy");
 
   const handleRotationChange = (deltaX: number, deltaY: number) => {
-    setGroupRotation(prev => ({
+    setGroupRotation((prev) => ({
       x: prev.x + deltaX,
-      y: prev.y + deltaY
+      y: prev.y + deltaY,
     }));
   };
 
@@ -41,7 +44,10 @@ const Hero = () => {
     <section id="hero" className="relative w-full h-screen">
       {/* Background gradient */}
       {backgrounds[background].gradients.map((gradient, index) => (
-        <div key={index} className={`absolute inset-0 transition-colors duration-1000 ${gradient}`} />
+        <div
+          key={index}
+          className={`absolute inset-0 transition-colors duration-1000 ${gradient}`}
+        />
       ))}
 
       {/* Content */}
@@ -49,22 +55,26 @@ const Hero = () => {
         <div className="w-full h-full">
           {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-            <Scene3D onLoaded={() => setIsLoading(false)} avatarAnimation={avatarAnimation} groupScale={groupScale} groupRotation={groupRotation} />
+            <Scene3D
+              onLoaded={() => setIsLoading(false)}
+              avatarAnimation={avatarAnimation}
+              groupScale={groupScale}
+              groupRotation={groupRotation}
+            />
           </Suspense>
         </div>
       </div>
 
       <Overlay hasExplored={hasExplored} setHasExplored={setHasExplored} />
 
+      <HelpFor3DInteraction />
       <BackgroundControls
         currentBackground={background}
         onBackgroundChange={setBackground}
       />
-      <HelpFor3DInteraction />
-      <AvatarControls onAnimationChange={setAvatarAnimation} />
       <ZoomControls onScaleChange={setGroupScale} />
+      <AvatarControls onAnimationChange={setAvatarAnimation} />
       <DirectionControls onRotationChange={handleRotationChange} />
-
     </section>
   );
 };

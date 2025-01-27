@@ -1,1 +1,1 @@
-export { default as ZoomControls } from './component';
+export { default as ZoomControls } from "./component";

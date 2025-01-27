@@ -61,11 +61,13 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         onClose={() => setIsFullScreen(false)}
       />
 
-      {project.videoDemoLink && <VideoPlayer
-        videoId={project.videoDemoLink}
-        isOpen={isVideoOpen}
-        onClose={() => setIsVideoOpen(false)}
-      />}
+      {project.videoDemoLink && (
+        <VideoPlayer
+          videoId={project.videoDemoLink}
+          isOpen={isVideoOpen}
+          onClose={() => setIsVideoOpen(false)}
+        />
+      )}
     </div>
   );
 }

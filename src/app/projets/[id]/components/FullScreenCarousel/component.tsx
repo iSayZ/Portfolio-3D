@@ -23,7 +23,6 @@ const FullScreenCarousel = ({
   isOpen,
   onClose,
 }: FullScreenCarouselProps) => {
-  
   // To lock the scroll
   useEffect(() => {
     if (isOpen) {

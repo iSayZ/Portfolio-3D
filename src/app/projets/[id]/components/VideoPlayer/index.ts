@@ -1,1 +1,1 @@
-export { default as VideoPlayer } from './component';
+export { default as VideoPlayer } from "./component";

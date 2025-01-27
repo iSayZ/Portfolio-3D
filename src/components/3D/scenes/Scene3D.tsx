@@ -10,7 +10,7 @@ import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Avatar } from "../models/Avatar";
 import { GalaxyBackground } from "../backgrounds/GalaxyBackground";
 import { Room } from "../models/Room";
-import * as THREE from 'three';
+import * as THREE from "three";
 
 interface AvatarWrapperProps {
   initialAnimation: string;
@@ -18,26 +18,31 @@ interface AvatarWrapperProps {
   targetRotation: THREE.Euler;
 }
 
-const AvatarWrapper: React.FC<AvatarWrapperProps> = ({ 
-  initialAnimation, 
-  targetPosition, 
-  targetRotation 
+const AvatarWrapper: React.FC<AvatarWrapperProps> = ({
+  initialAnimation,
+  targetPosition,
+  targetRotation,
 }) => {
   const [currentAnimation, setCurrentAnimation] = useState(initialAnimation);
   const [position, setPosition] = useState(new THREE.Vector3(0, 0.094, -0.78));
-  const [rotation, setRotation] = useState(new THREE.Euler(-Math.PI, 0.316, -Math.PI));
+  const [rotation, setRotation] = useState(
+    new THREE.Euler(-Math.PI, 0.316, -Math.PI),
+  );
   const animationTimeout = useRef<NodeJS.Timeout>();
   const isMoving = useRef(false);
 
   useEffect(() => {
-    if (initialAnimation !== currentAnimation && initialAnimation !== "Falling") {
+    if (
+      initialAnimation !== currentAnimation &&
+      initialAnimation !== "Falling"
+    ) {
       isMoving.current = true;
       setCurrentAnimation("Falling");
-      
+
       if (animationTimeout.current) {
         clearTimeout(animationTimeout.current);
       }
-      
+
       animationTimeout.current = setTimeout(() => {
         setCurrentAnimation(initialAnimation);
         isMoving.current = false;
@@ -83,10 +88,19 @@ interface Scene3DProps {
   groupRotation: any;
 }
 
-const Scene3D: React.FC<Scene3DProps> = ({ onLoaded, avatarAnimation, groupScale, groupRotation }) => {
+const Scene3D: React.FC<Scene3DProps> = ({
+  onLoaded,
+  avatarAnimation,
+  groupScale,
+  groupRotation,
+}) => {
   const { progress, loaded } = useProgress();
-  const [targetPosition, setTargetPosition] = useState(new THREE.Vector3(0, 0.094, -0.78));
-  const [targetRotation, setTargetRotation] = useState(new THREE.Euler(-Math.PI, 0.316, -Math.PI));
+  const [targetPosition, setTargetPosition] = useState(
+    new THREE.Vector3(0, 0.094, -0.78),
+  );
+  const [targetRotation, setTargetRotation] = useState(
+    new THREE.Euler(-Math.PI, 0.316, -Math.PI),
+  );
 
   useEffect(() => {
     switch (avatarAnimation) {
@@ -152,7 +166,11 @@ const Scene3D: React.FC<Scene3DProps> = ({ onLoaded, avatarAnimation, groupScale
         />
         <GalaxyBackground />
 
-        <group position={[0, -0.5, 0]} scale={[groupScale,groupScale,groupScale]} rotation={[groupRotation.x, groupRotation.y, 0]}>
+        <group
+          position={[0, -0.5, 0]}
+          scale={[groupScale, groupScale, groupScale]}
+          rotation={[groupRotation.x, groupRotation.y, 0]}
+        >
           <Suspense fallback={null}>
             <AvatarWrapper
               initialAnimation={avatarAnimation}

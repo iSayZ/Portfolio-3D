@@ -58,9 +58,7 @@ const HelpFor3DInteraction: React.FC = () => {
             </AlertTitle>
             {content}
             <div className="flex justify-center mt-4">
-              <Button onClick={() => setShowHint(false)}>
-                J'ai compris !
-              </Button>
+              <Button onClick={() => setShowHint(false)}>J'ai compris !</Button>
             </div>
           </Alert>
         </div>
