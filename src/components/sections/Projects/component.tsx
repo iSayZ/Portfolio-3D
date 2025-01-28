@@ -6,6 +6,7 @@ import { projects } from "@/config/projects.config";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useProjectsStore } from "./store/useProjectStore";
+import FadeInOnScroll from "@/components/template/animations/FadeInOnScroll";
 
 export const Projects = () => {
   const { visibleProjects, setVisibleProjects } = useProjectsStore();
@@ -25,22 +26,28 @@ export const Projects = () => {
   return (
     <section id="projects">
       <div className="container px-4 mx-auto flex flex-col gap-12">
-        <h2 className="text-3xl font-bold text-center">Mes Projets</h2>
+        <FadeInOnScroll moveY={50}>
+          <h2 className="text-3xl font-bold text-center">Mes Projets</h2>
+        </FadeInOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-6">
-          {projects.slice(0, visibleProjects).map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+            {projects.slice(0, visibleProjects).map((project) => (
+              <FadeInOnScroll key={project.id} moveY={50}>
+                <ProjectCard project={project} />
+              </FadeInOnScroll>
+            ))}
         </div>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center gap-4">
         {projects.length > visibleProjects && (
-          <Button
-            onClick={showMoreProjects}
-            variant="outline"
-            className="p-6 text-lg bg-card mt-12"
-          >
-            Afficher plus de projets
-          </Button>
+          <FadeInOnScroll moveY={50}>
+            <Button
+              onClick={showMoreProjects}
+              variant="outline"
+              className="p-6 text-lg bg-card mt-12"
+            >
+              Afficher plus de projets
+            </Button>
+          </FadeInOnScroll>
         )}
       </div>
     </section>

@@ -1,5 +1,7 @@
 "use client";
 
+import FadeInOnScroll from "@/components/template/animations/FadeInOnScroll";
+import SlideInOnScroll from "@/components/template/animations/SlideInOnScroll";
 import { useIsScreenLarge } from "@/hooks/useIsLargeScreen";
 import dynamic from "next/dynamic";
 
@@ -30,13 +32,21 @@ const Skills: React.FC = () => {
     >
       {isLargeScreen ? (
         <>
-          <SoftSkillsDesktop />
-          <HardSkillsDesktop />
+          <FadeInOnScroll>
+            <SoftSkillsDesktop />
+          </FadeInOnScroll>
+          <FadeInOnScroll>
+            <HardSkillsDesktop />
+          </FadeInOnScroll>
         </>
       ) : (
         <>
-          <HardSkillsMobile />
-          <SoftSkillsMobile />
+          <FadeInOnScroll moveY={50}>
+            <HardSkillsMobile />
+          </FadeInOnScroll>
+          <FadeInOnScroll moveY={50}>
+            <SoftSkillsMobile />
+          </FadeInOnScroll>
         </>
       )}
     </section>
