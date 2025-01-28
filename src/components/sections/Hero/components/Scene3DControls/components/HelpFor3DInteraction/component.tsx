@@ -58,8 +58,8 @@ const HelpFor3DInteraction: React.FC = () => {
   return (
     <>
       {showHint && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-          <Alert className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow-md border-none text-center">
+        <div className="relative w-full h-screen flex justify-center items-center z-50 px-4">
+          <Alert className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow-md border-none text-center max-w-max">
             <AlertTitle className="text-lg font-bold mb-2">
               Contrôles de la Scène 3D
             </AlertTitle>
