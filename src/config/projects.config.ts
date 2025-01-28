@@ -68,7 +68,7 @@ export const techStack: Record<string, Technology> = {
 export const projects: Project[] = [
   {
     id: "portfolio-windows-11",
-    title: "Portfolio interactif Windows 11",
+    title: "Portfolio Windows 11",
     cover: "/assets/images/projects/portfolio-windows-11/desktop.png",
     desc: "Windows 11 Portfolio est une réplique web interactive de l'interface Windows 11, conçue pour servir de portfolio créatif. Ce projet repousse les limites de l'expérience utilisateur classique en transformant un environnement familier - celui de Windows 11 - en une vitrine innovante de compétences en développement web. Le portfolio permet d'ouvrir différentes applications et de manipuler les fenêtres exactement comme sur Windows 11, avec la possibilité de les redimensionner, les déplacer et les organiser à votre guise. N'hésitez pas à explorer cet environnement familier et à interagir avec les différentes applications pour découvrir mes réalisations !",
     screenshots: [

@@ -48,7 +48,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ) : null}
         </div>
         <div className="p-6 space-y-4">
-          <h3 className="text-xl font-semibold tracking-tight">
+          <h3 className="text-xl font-semibold tracking-tight truncate">
             {project.title}
           </h3>
 
@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.desc}
           </p>
 
-          <div className="flex flex-wrap gap-2 min-h-[64px]">
+          <div className="flex flex-wrap gap-2 min-h-[64px] max-h-[64px] overflow-hidden">
             {project.technologies.map((tech) => (
               <div
                 key={tech.name}
