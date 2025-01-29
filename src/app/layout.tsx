@@ -55,6 +55,20 @@ export const metadata: Metadata = {
       "https://estrine-alexis.fr/assets/images/metadata/app-overview.png",
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+  }
 };
 
 export default function RootLayout({
