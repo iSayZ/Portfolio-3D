@@ -25,7 +25,8 @@ const HelpFor3DInteraction: React.FC = () => {
           ● Clic gauche et glisse pour pivoter
           <br />● Pince ou utilise la molette pour zoomer
           <br />
-          <br />Tu peux également utiliser les boutons de contrôle,
+          <br />
+          Tu peux également utiliser les boutons de contrôle,
           <br /> ainsi que les flèches du clavier !
         </span>
       </div>
@@ -48,9 +49,7 @@ const HelpFor3DInteraction: React.FC = () => {
           />
         </div>
         <br />
-          <p>
-         Tu peux également utiliser les boutons de contrôle !
-          </p>
+        <p>Tu peux également utiliser les boutons de contrôle !</p>
       </div>
     </AlertDescription>
   );

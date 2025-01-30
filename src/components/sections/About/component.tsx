@@ -33,15 +33,15 @@ const About = () => {
 
         {/* Content container */}
         <div className="flex flex-col gap-6 md:w-1/2">
-        <FadeInOnScroll moveY={50}>
-          <div className="space-y-3">
+          <FadeInOnScroll moveY={50}>
+            <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tight max-md:text-center">
                 {contentsConfig.about.title}
               </h2>
               <p className="text-muted-foreground">
                 {contentsConfig.about.description}
               </p>
-          </div>
+            </div>
 
             <Button
               className="w-full mt-4"
@@ -51,7 +51,7 @@ const About = () => {
               <Download className="mr-2 h-4 w-4" />
               Télécharger mon CV
             </Button>
-        </FadeInOnScroll>
+          </FadeInOnScroll>
         </div>
       </div>
     </section>

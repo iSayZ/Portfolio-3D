@@ -1,4 +1,5 @@
-import { Analytics } from "@vercel/analytics/react"
+import "@/utils/preloadModels";
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/template/Theming/ThemingProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -61,14 +62,14 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
-  }
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({

@@ -39,7 +39,7 @@ const Hero = () => {
         <div className="w-full h-full">
           {/* Disabled for development */}
           <Suspense fallback={<LoadingScreen />}>
-          <Scene3D onLoaded={() => setIsLoading(false)} />
+            <Scene3D onLoaded={() => setIsLoading(false)} />
           </Suspense>
         </div>
       </div>

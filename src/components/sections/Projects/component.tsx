@@ -30,11 +30,11 @@ export const Projects = () => {
           <h2 className="text-3xl font-bold text-center">Mes Projets</h2>
         </FadeInOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-6">
-            {projects.slice(0, visibleProjects).map((project) => (
-              <FadeInOnScroll key={project.id} moveY={50}>
-                <ProjectCard project={project} />
-              </FadeInOnScroll>
-            ))}
+          {projects.slice(0, visibleProjects).map((project) => (
+            <FadeInOnScroll key={project.id} moveY={50}>
+              <ProjectCard project={project} />
+            </FadeInOnScroll>
+          ))}
         </div>
       </div>
       <div className="w-full flex justify-center gap-4">

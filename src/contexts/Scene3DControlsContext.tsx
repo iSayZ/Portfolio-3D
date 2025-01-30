@@ -11,7 +11,7 @@ interface Scene3DControlsContextType {
   groupRotation: GroupRotation;
   background: BackgroundType;
   hasExplored: boolean;
-  
+
   // Setters
   setAvatarAnimation: (animation: string) => void;
   setGroupScale: (scale: number) => void;
@@ -21,12 +21,17 @@ interface Scene3DControlsContextType {
   handleRotationChange: (deltaX: number, deltaY: number) => void;
 }
 
-const Scene3DControlsContext = createContext<Scene3DControlsContextType | undefined>(undefined);
+const Scene3DControlsContext = createContext<
+  Scene3DControlsContextType | undefined
+>(undefined);
 
 export function Scene3DControlsProvider({ children }: { children: ReactNode }) {
   const [avatarAnimation, setAvatarAnimation] = useState<string>("Typing");
   const [groupScale, setGroupScale] = useState<number>(1);
-  const [groupRotation, setGroupRotation] = useState<GroupRotation>({ x: 0, y: 0 });
+  const [groupRotation, setGroupRotation] = useState<GroupRotation>({
+    x: 0,
+    y: 0,
+  });
   const [background, setBackground] = useState<BackgroundType>("galaxy");
   const [hasExplored, setHasExplored] = useState<boolean>(false);
 
@@ -61,7 +66,9 @@ export function Scene3DControlsProvider({ children }: { children: ReactNode }) {
 export function useScene3DControls() {
   const context = useContext(Scene3DControlsContext);
   if (!context) {
-    throw new Error("useScene3DControls must be used within Scene3DControlsProvider");
+    throw new Error(
+      "useScene3DControls must be used within Scene3DControlsProvider",
+    );
   }
   return context;
 }

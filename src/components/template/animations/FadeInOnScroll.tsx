@@ -7,7 +7,11 @@ interface FadeInOnScrollProps {
   className?: string;
 }
 
-const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({ children, moveY = 0, className = "" }) => {
+const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({
+  children,
+  moveY = 0,
+  className = "",
+}) => {
   const containerVariants = {
     hidden: {},
     visible: {
@@ -19,7 +23,11 @@ const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({ children, moveY = 0, cl
 
   const childVariants = {
     hidden: { opacity: 0, y: moveY },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -31,14 +39,16 @@ const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({ children, moveY = 0, cl
       className={className}
     >
       {/* Each children is animated individualy */}
-      {Array.isArray(children)
-        ? children.map((child, index) => (
-            <motion.div key={index} variants={childVariants}>
-              {child}
-            </motion.div>
-          ))
-        : // If only one children is animated directly
-          <motion.div variants={childVariants}>{children}</motion.div>}
+      {Array.isArray(children) ? (
+        children.map((child, index) => (
+          <motion.div key={index} variants={childVariants}>
+            {child}
+          </motion.div>
+        ))
+      ) : (
+        // If only one children is animated directly
+        <motion.div variants={childVariants}>{children}</motion.div>
+      )}
     </motion.div>
   );
 };

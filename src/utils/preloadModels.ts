@@ -8,5 +8,5 @@ export const MODELS = {
 } as const;
 
 // Preload with Draco Loader
-useGLTF.preload(MODELS.ROOM, '/draco/gltf/');
-useGLTF.preload(MODELS.AVATAR, '/draco/gltf/');
+useGLTF.preload(MODELS.ROOM, "/draco/gltf/");
+useGLTF.preload(MODELS.AVATAR, "/draco/gltf/");

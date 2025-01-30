@@ -89,8 +89,8 @@ export const projects: Project[] = [
     demoLink: "https://windows.estrine-alexis.fr",
     githubRepoLink: "https://github.com/iSayZ/Windows-Portfolio",
     isInConstruction: false,
-    date: "Janvier 2025"
-  },  
+    date: "Janvier 2025",
+  },
   {
     id: "dashboard-haute-securite",
     title: "Dashboard de haute sécurité",

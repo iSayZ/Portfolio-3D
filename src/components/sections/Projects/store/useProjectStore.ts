@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 interface ProjectsState {
   visibleProjects: number;
@@ -13,8 +13,8 @@ export const useProjectsStore = create<ProjectsState>()(
       setVisibleProjects: (count) => set({ visibleProjects: count }),
     }),
     {
-      name: 'projects-storage',
+      name: "projects-storage",
       storage: createJSONStorage(() => sessionStorage),
-    }
-  )
+    },
+  ),
 );

@@ -2,8 +2,8 @@ import { useLoading } from "@/contexts/LoadingContext";
 import { useScrollLock } from "@/hooks/useScrollLock";
 
 const LoadingScreen: React.FC = () => {
-    const { isLoading } = useLoading();
-  
+  const { isLoading } = useLoading();
+
   useScrollLock(isLoading);
 
   return (
@@ -11,9 +11,7 @@ const LoadingScreen: React.FC = () => {
       {/* Main container */}
       <div className="flex flex-col items-center max-w-sm mx-auto px-4">
         {/* Logo */}
-        <h1 className="lot text-9xl text-primary mb-12 animate-pulse">
-          AE
-        </h1>
+        <h1 className="lot text-9xl text-primary mb-12 animate-pulse">AE</h1>
 
         {/* Loading section */}
         <div className="w-full space-y-6">

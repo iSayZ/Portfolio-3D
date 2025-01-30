@@ -1,6 +1,5 @@
 "use client";
 
-import "@/utils/preloadModels";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -16,8 +15,8 @@ const HubPage = () => {
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const containerVariants = {
@@ -25,33 +24,30 @@ const HubPage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1
-    }
+      opacity: 1,
+    },
   };
 
   return (
     <div className="h-screen flex flex-col justify-between py-12 md:py-0">
       <div className="flex-1 flex items-center justify-center px-4">
-        <motion.div 
+        <motion.div
           className="w-full max-w-3xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {/* Logo Section */}
-          <motion.div 
-            className="text-center mb-12"
-            variants={itemVariants}
-          >
+          <motion.div className="text-center mb-12" variants={itemVariants}>
             <h1 className="lot text-8xl md:text-9xl text-primary animate-pulse">
               AE
             </h1>
@@ -61,30 +57,36 @@ const HubPage = () => {
           </motion.div>
 
           {/* Cards Container */}
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-2 gap-6 px-4"
             variants={itemVariants}
           >
             {/* Windows Portfolio Card */}
-            <Link 
-              href="https://windows.estrine-alexis.fr/" 
-              className={`${isMobile ? 'cursor-not-allowed' : ''}`}
+            <Link
+              href="https://windows.estrine-alexis.fr/"
+              className={`${isMobile ? "cursor-not-allowed" : ""}`}
               onClick={(e) => isMobile && e.preventDefault()}
             >
-              <div 
+              <div
                 className={`group relative h-64 rounded-xl overflow-hidden transition-all duration-300
-                  ${isMobile 
-                    ? 'bg-card/50 cursor-not-allowed' 
-                    : 'bg-card hover:shadow-lg hover:scale-[1.02] cursor-pointer'}`}
+                  ${
+                    isMobile
+                      ? "bg-card/50 cursor-not-allowed"
+                      : "bg-card hover:shadow-lg hover:scale-[1.02] cursor-pointer"
+                  }`}
               >
                 <div className="absolute inset-0 bg-primary/5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <div className="relative h-full flex flex-col items-center justify-center p-6 text-center">
-                  <WindowsIcon className={`w-16 h-16 mb-4 ${isMobile ? 'text-muted-foreground' : 'text-primary'}`} />
-                  <h2 className={`text-xl font-semibold mb-2 ${isMobile ? 'text-muted-foreground' : 'text-foreground'}`}>
+                  <WindowsIcon
+                    className={`w-16 h-16 mb-4 ${isMobile ? "text-muted-foreground" : "text-primary"}`}
+                  />
+                  <h2
+                    className={`text-xl font-semibold mb-2 ${isMobile ? "text-muted-foreground" : "text-foreground"}`}
+                  >
                     Portfolio Windows 11
                   </h2>
                   <p className="text-sm text-muted-foreground max-w-[250px]">
-                    {isMobile 
+                    {isMobile
                       ? "Disponible uniquement sur ordinateur"
                       : "Une expérience immersive inspirée de Windows 11"}
                   </p>
@@ -110,11 +112,12 @@ const HubPage = () => {
           </motion.div>
 
           {/* Description Text */}
-          <motion.p 
+          <motion.p
             className="text-center text-muted-foreground text-sm mt-8"
             variants={itemVariants}
           >
-            Les deux versions offrent une expérience unique pour découvrir mon travail
+            Les deux versions offrent une expérience unique pour découvrir mon
+            travail
           </motion.p>
         </motion.div>
       </div>
