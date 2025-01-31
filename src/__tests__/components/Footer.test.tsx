@@ -12,10 +12,10 @@ jest.mock("@/hooks/useScrollToSection", () => ({
 describe("Footer Component", () => {
   it("should render all navigation buttons", () => {
     render(<Footer />);
-    
+
     sections.forEach((section) => {
       expect(
-        screen.getByRole("button", { name: section.name })
+        screen.getByRole("button", { name: section.name }),
       ).toBeInTheDocument();
     });
   });
@@ -26,15 +26,13 @@ describe("Footer Component", () => {
     window.scrollTo = jest.fn();
 
     sections.forEach((section) => {
-        const sectionButton = screen.getByRole("button", { name: section.name })
-        expect(sectionButton).toBeInTheDocument();
-        
-        fireEvent.click(sectionButton);
+      const sectionButton = screen.getByRole("button", { name: section.name });
+      expect(sectionButton).toBeInTheDocument();
 
-        expect(mockScrollTo).toHaveBeenCalledWith(section.id);
-    });    
+      fireEvent.click(sectionButton);
 
-
+      expect(mockScrollTo).toHaveBeenCalledWith(section.id);
+    });
   });
 
   it("should render social media links", () => {
@@ -42,12 +40,12 @@ describe("Footer Component", () => {
 
     expect(screen.getByRole("link", { name: /Github/i })).toHaveAttribute(
       "href",
-      socialLinks.github.url
+      socialLinks.github.url,
     );
 
     expect(screen.getByRole("link", { name: /Linkedin/i })).toHaveAttribute(
       "href",
-      socialLinks.linkedin.url
+      socialLinks.linkedin.url,
     );
   });
 
@@ -65,16 +63,19 @@ describe("Footer Component", () => {
     render(<Footer />);
 
     Object.entries(footerUtilsLinks).forEach(([_, link]) => {
-      expect(
-        screen.getByRole("link", { name: link.label })
-      ).toHaveAttribute("href", link.url);
+      expect(screen.getByRole("link", { name: link.label })).toHaveAttribute(
+        "href",
+        link.url,
+      );
     });
   });
 
   it("should open CV link on click", () => {
     render(<Footer />);
 
-    const cvButton = screen.getByRole("button", { name: /voir \/ télécharger mon cv/i });
+    const cvButton = screen.getByRole("button", {
+      name: /voir \/ télécharger mon cv/i,
+    });
     window.open = jest.fn();
 
     fireEvent.click(cvButton);
@@ -85,11 +86,16 @@ describe("Footer Component", () => {
   it("should scroll to top when 'Retour en haut' button is clicked", () => {
     render(<Footer />);
 
-    const scrollToTopButton = screen.getByRole("button", { name: /retour en haut/i });
+    const scrollToTopButton = screen.getByRole("button", {
+      name: /retour en haut/i,
+    });
     window.scrollTo = jest.fn();
 
     fireEvent.click(scrollToTopButton);
 
-    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
+    expect(window.scrollTo).toHaveBeenCalledWith({
+      top: 0,
+      behavior: "smooth",
+    });
   });
 });

@@ -26,6 +26,7 @@ export const hardSkills: Skill[] = [
   { path: "/assets/images/icons/technos/tailwind.svg", name: "Tailwind CSS" },
   { path: "/assets/images/icons/technos/github.svg", name: "Github" },
   { path: "/assets/images/icons/technos/docker.svg", name: "Docker" },
+  { path: "/assets/images/icons/technos/jest.svg", name: "Jest" },
   { path: "/assets/images/icons/technos/figma.svg", name: "Figma" },
 ];
 
@@ -93,6 +94,11 @@ export const hardSkillsMobile: Skill[] = [
     path: "/assets/images/icons/technos/docker.svg",
     name: "Docker",
     color: "#2496ED",
+  },
+  {
+    path: "/assets/images/icons/technos/jest.svg",
+    name: "Jest",
+    color: "#C21325",
   },
   {
     path: "/assets/images/icons/technos/figma.svg",

@@ -16,6 +16,7 @@ import {
   SiMysql,
   SiNestjs,
   SiSocketdotio,
+  SiJest,
 } from "react-icons/si";
 import { Project, Technology } from "@/components/sections/Projects";
 
@@ -63,6 +64,7 @@ export const techStack: Record<string, Technology> = {
   },
   css: { name: "CSS", icon: SiCss3, color: "#1572B6" },
   html: { name: "HTML", icon: SiHtml5, color: "#E34F26" },
+  jest: { name: "Jest", icon: SiJest, color: "#C21325" },
 };
 
 export const projects: Project[] = [
