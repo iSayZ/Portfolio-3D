@@ -44,6 +44,7 @@ const Footer: React.FC = () => {
                   href={socialLinks.github.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Github"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Github className="w-6 h-6" />
@@ -52,6 +53,7 @@ const Footer: React.FC = () => {
                   href={socialLinks.linkedin.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Linkedin"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Linkedin className="w-6 h-6" />
