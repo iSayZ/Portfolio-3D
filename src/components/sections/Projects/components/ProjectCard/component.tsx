@@ -15,13 +15,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       className="overflow-hidden group relative cursor-pointer hover:bg-muted transition"
       onClick={() => router.push(`/portfolio/projets/${project.id}`)}
     >
-      {project.isInConstruction && (
-        <Badge
-          variant="default"
-          className="absolute top-4 right-4 z-10 bg-amber-500/80 hover:bg-amber-500"
-        >
-          En construction
-        </Badge>
+      {(project.isInConstruction || project.collaboration) && (
+        <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
+          {project.isInConstruction && (
+            <Badge
+              variant="default"
+              className="bg-amber-500 hover:bg-amber-500"
+            >
+              En construction
+            </Badge>
+          )}
+          {project.collaboration && (
+            <Badge
+              variant="default"
+              className="bg-red-500 hover:bg-red-500 flex justify-center"
+            >
+              Collaboration
+            </Badge>
+          )}
+        </div>
       )}
       <CardContent className="p-0">
         <div className="relative aspect-video overflow-hidden">

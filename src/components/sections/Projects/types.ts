@@ -5,6 +5,11 @@ export interface Technology {
   textColor?: string;
 }
 
+export interface Collaborator {
+  name: string;
+  link: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -18,5 +23,6 @@ export interface Project {
   videoDemoLink?: string;
   githubRepoLink?: string;
   isInConstruction: boolean;
+  collaboration?: Collaborator;
   date: string;
 }
