@@ -42,6 +42,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           title={project.title}
           date={project.date}
           isInConstruction={project.isInConstruction}
+          collaboration={project.collaboration || undefined}
         />
       </div>
 
