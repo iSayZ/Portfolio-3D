@@ -17,6 +17,7 @@ import {
   SiNestjs,
   SiSocketdotio,
   SiJest,
+  SiDocker,
 } from "react-icons/si";
 import { Project, Technology } from "@/components/sections/Projects";
 
@@ -65,9 +66,28 @@ export const techStack: Record<string, Technology> = {
   css: { name: "CSS", icon: SiCss3, color: "#1572B6" },
   html: { name: "HTML", icon: SiHtml5, color: "#E34F26" },
   jest: { name: "Jest", icon: SiJest, color: "#C21325" },
+  docker: { name: "Docker", icon: SiDocker, color: "#2496ED" },
 };
 
 export const projects: Project[] = [
+  {
+    id: "prisma-architect",
+    title: "Prisma Architect",
+    cover: "/assets/images/projects/prisma-architect/builder.png",
+    desc: "Prisma Architect est un outil intuitif permettant de concevoir, déployer et modifier vos bases de données grâce à une interface graphique simple d'utilisation. Actuellement compatible avec MongoDB, il prendra bientôt en charge d'autres bases de données. L'outil génèrera automatiquement le code API pour Next.js et les types TypeScript pour le frontend, accélérant ainsi le développement des applications. Parmi les fonctionnalités à venir : génération de mocks de données, versionnement de la base de données, collaboration en temps réel, suivi des performances des API, et une IA pour optimiser la structure des bases de données et les requêtes.",
+    screenshots: [
+      "/assets/images/projects/prisma-architect/builder.png",
+      "/assets/images/projects/prisma-architect/builder-add-table.png",
+      "/assets/images/projects/prisma-architect/deployer-steps.png",
+      "/assets/images/projects/prisma-architect/deployer-logs.png",
+      "/assets/images/projects/prisma-architect/mock-generator.png",
+    ],
+    technologies: [techStack.next, techStack.typescript, techStack.prisma, techStack.mongodb, techStack.docker],
+    demoLink: "https://nicolashedoire.com/projects/prisma-architect",
+    isInConstruction: true,
+    collaboration: [{name: "Nicolas Hedoire", link: "https://nicolashedoire.com"}],
+    date: "Février 2025",
+  },  
   {
     id: "portfolio-windows-11",
     title: "Portfolio Windows 11",
