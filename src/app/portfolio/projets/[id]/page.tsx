@@ -12,12 +12,15 @@ import { ProjectDescription } from "./components/ProjectDescription";
 import { ProjectTechnologies } from "./components/ProjectTechnologies";
 import { FullScreenCarousel } from "./components/FullScreenCarousel";
 import { VideoPlayer } from "./components/VideoPlayer";
+import { ConstructionDemoLinkAlertDialog } from "./components/ConstructionDemoLinkAlertDialog";
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const project = projects.find((p) => p.id === params.id);
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
+  const [showConstructionDemoLinkAlert, setShowConstructionDemoLinkAlert] =
+    useState<boolean>(false);
 
   if (!project) return router.push("/");
 
@@ -49,6 +52,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
             demoLink={project.demoLink}
             videoLink={project.videoDemoLink}
             onVideoClick={() => setIsVideoOpen(true)}
+            isInConstruction={project.isInConstruction}
+            setShowConstructionDemoLinkAlert={setShowConstructionDemoLinkAlert}
           />
           <ProjectDescription description={project.desc} />
           <ProjectTechnologies technologies={project.technologies} />
@@ -68,6 +73,12 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           onClose={() => setIsVideoOpen(false)}
         />
       )}
+
+      <ConstructionDemoLinkAlertDialog
+        open={showConstructionDemoLinkAlert}
+        onOpenChange={setShowConstructionDemoLinkAlert}
+        demoLink={project.demoLink}
+      />
     </div>
   );
 }

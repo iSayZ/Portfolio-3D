@@ -1,19 +1,32 @@
 import { Github, ExternalLink, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 interface ProjectLinksProps {
   githubLink?: string;
   demoLink?: string;
   videoLink?: string;
   onVideoClick?: () => void;
+  isInConstruction: boolean;
+  setShowConstructionDemoLinkAlert: (value: boolean) => void;
 }
 
-const ProjectLinks = ({
+const ProjectLinks: React.FC<ProjectLinksProps> = ({
   githubLink,
   demoLink,
   videoLink,
   onVideoClick,
-}: ProjectLinksProps) => {
+  isInConstruction,
+  setShowConstructionDemoLinkAlert,
+}) => {
+  const onOpenDemoLink = () => {
+    if (isInConstruction) {
+      setShowConstructionDemoLinkAlert(true);
+    } else {
+      window.open(demoLink);
+    }
+  };
+
   return (
     <div className="flex flex-wrap gap-4">
       {githubLink && (
@@ -27,7 +40,7 @@ const ProjectLinks = ({
       )}
       {demoLink && (
         <Button
-          onClick={() => window.open(demoLink)}
+          onClick={onOpenDemoLink}
           className="bg-primary hover:bg-primary/90"
         >
           <ExternalLink className="mr-2" />

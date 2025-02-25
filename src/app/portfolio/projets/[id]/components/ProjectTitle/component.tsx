@@ -19,7 +19,9 @@ export const ProjectTitle = ({
             {title}
           </h1>
           {isInConstruction ? (
-            <Badge className="bg-amber-500">En construction</Badge>
+            <Badge className="bg-amber-500 hover:bg-amber-600 cursor-pointer">
+              En construction
+            </Badge>
           ) : (
             <p className="text-muted-foreground">{date}</p>
           )}

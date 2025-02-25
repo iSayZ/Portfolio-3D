@@ -14,8 +14,12 @@ export const Projects = () => {
   const isLargeScreen = useIsScreenLarge(768);
 
   const [sortedProjects, setSortedProjects] = useState<Project[]>(() => {
-    const projectsInConstruction = projects.filter(project => project.isInConstruction);
-    const finishedProjects = projects.filter(project => !project.isInConstruction);
+    const projectsInConstruction = projects.filter(
+      (project) => project.isInConstruction,
+    );
+    const finishedProjects = projects.filter(
+      (project) => !project.isInConstruction,
+    );
     return [...projectsInConstruction, ...finishedProjects];
   });
 
