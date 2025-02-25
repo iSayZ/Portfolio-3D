@@ -82,12 +82,20 @@ export const projects: Project[] = [
       "/assets/images/projects/prisma-architect/deployer-logs.png",
       "/assets/images/projects/prisma-architect/mock-generator.png",
     ],
-    technologies: [techStack.next, techStack.typescript, techStack.prisma, techStack.mongodb, techStack.docker],
+    technologies: [
+      techStack.next,
+      techStack.typescript,
+      techStack.prisma,
+      techStack.mongodb,
+      techStack.docker,
+    ],
     demoLink: "https://nicolashedoire.com/projects/prisma-architect",
     isInConstruction: true,
-    collaboration: [{name: "Nicolas Hedoire", link: "https://nicolashedoire.com"}],
+    collaboration: [
+      { name: "Nicolas Hedoire", link: "https://nicolashedoire.com" },
+    ],
     date: "Février 2025",
-  },  
+  },
   {
     id: "portfolio-windows-11",
     title: "Portfolio Windows 11",

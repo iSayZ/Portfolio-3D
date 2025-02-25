@@ -20,6 +20,7 @@ const ProjectDescription = ({
               <div className="flex" key={index}>
                 <a
                   href={collaborator.link}
+                  target="_blank"
                   className="text-blue-500 hover:text-blue-400"
                 >
                   {collaborator.name}
