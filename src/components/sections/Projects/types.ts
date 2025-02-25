@@ -23,6 +23,6 @@ export interface Project {
   videoDemoLink?: string;
   githubRepoLink?: string;
   isInConstruction: boolean;
-  collaboration?: Collaborator;
+  collaboration?: Collaborator[];
   date: string;
 }

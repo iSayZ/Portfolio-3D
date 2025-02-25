@@ -5,7 +5,7 @@ interface ProjectTitleProps {
   title: string;
   date: string;
   isInConstruction: boolean;
-  collaboration: Collaborator | undefined;
+  collaboration: Collaborator[] | undefined;
 }
 
 export const ProjectTitle = ({
@@ -21,7 +21,7 @@ export const ProjectTitle = ({
           <h1 className="text-slate-50 text-4xl md:text-5xl w-full font-bold truncate overflow-hidden text-ellipsis whitespace-nowrap">
             {title}
           </h1>
-          {(isInConstruction || collaboration) ? (
+          {isInConstruction || collaboration ? (
             <div className="flex gap-2 mt-2">
               {isInConstruction && (
                 <Badge className="bg-amber-500 hover:bg-amber-600 cursor-pointer">

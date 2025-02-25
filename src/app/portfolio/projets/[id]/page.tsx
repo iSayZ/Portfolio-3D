@@ -56,11 +56,15 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
             isInConstruction={project.isInConstruction}
             setShowConstructionDemoLinkAlert={setShowConstructionDemoLinkAlert}
           />
-          <ProjectDescription description={project.desc} />
+          <ProjectDescription
+            description={project.desc}
+            collaboration={project.collaboration || undefined}
+          />
           <ProjectTechnologies technologies={project.technologies} />
         </div>
       </div>
 
+      {/* All modals */}
       <FullScreenCarousel
         images={project.screenshots}
         isOpen={isFullScreen}
