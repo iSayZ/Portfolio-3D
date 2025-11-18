@@ -21,6 +21,8 @@ export const hardSkills: Skill[] = [
   { path: "/assets/images/icons/technos/nodejs.svg", name: "Node.js" },
   { path: "/assets/images/icons/technos/nestjs.svg", name: "Nest.js" },
   { path: "/assets/images/icons/technos/express.svg", name: "Express" },
+  { path: "/assets/images/icons/technos/php.svg", name: "PHP" },
+  { path: "/assets/images/icons/technos/laravel.svg", name: "Laravel" },
   { path: "/assets/images/icons/technos/mongodb.svg", name: "MongoDB" },
   { path: "/assets/images/icons/technos/mysql.svg", name: "MySQL" },
   { path: "/assets/images/icons/technos/tailwind.svg", name: "Tailwind CSS" },
@@ -68,6 +70,16 @@ export const hardSkillsMobile: Skill[] = [
     name: "Express",
     color: "#64748b",
     textColor: "#ffffff",
+  },
+  {
+    path: "/assets/images/icons/technos/php.svg",
+    name: "PHP",
+    color: "#777BB4",
+  },
+  {
+    path: "/assets/images/icons/technos/laravel.svg",
+    name: "Laravel",
+    color: "#F55247",
   },
   {
     path: "/assets/images/icons/technos/mongodb.svg",
